@@ -9,13 +9,6 @@ exports.handler = async (event) => {
     const openAiApiKey = process.env.OPENAI_API_KEY;
     const model = process.env.OPENAI_MODEL || 'gpt-4o-mini';
 
-    if (!openAiApiKey) {
-        return {
-            statusCode: 503,
-            body: JSON.stringify({ error: 'OPENAI_API_KEY is not configured' })
-        };
-    }
-
     try {
         const body = event.body ? JSON.parse(event.body) : {};
         const message = String(body.message || '').trim();
@@ -26,6 +19,25 @@ exports.handler = async (event) => {
             return {
                 statusCode: 400,
                 body: JSON.stringify({ error: 'message is required' })
+            };
+        }
+
+        if (!openAiApiKey) {
+            const base = [
+                'Excelente, te puedo ayudar con eso.',
+                `Tema detectado: ${context.topic || 'general'}.`,
+                `Plazo: ${context.deadline || 'por definir'}.`,
+                'Para cotizarte exacto necesito: curso, tipo de trabajo, rubrica y fecha limite.',
+                'Si deseas, te dejo una propuesta inicial ahora mismo y la ajustamos por WhatsApp.'
+            ];
+
+            if (/precio|costo|cuanto/i.test(message)) {
+                base.push('El precio varía segun complejidad, cantidad de avances y urgencia de entrega.');
+            }
+
+            return {
+                statusCode: 200,
+                body: JSON.stringify({ reply: base.join(' '), source: 'fallback-api' })
             };
         }
 
