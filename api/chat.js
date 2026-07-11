@@ -1,0 +1,75 @@
+export default async function handler(req, res) {
+    if (req.method !== 'POST') {
+        res.status(405).json({ error: 'Method not allowed' });
+        return;
+    }
+
+    const openAiApiKey = process.env.OPENAI_API_KEY;
+    const model = process.env.OPENAI_MODEL || 'gpt-4o-mini';
+
+    if (!openAiApiKey) {
+        res.status(503).json({ error: 'OPENAI_API_KEY is not configured' });
+        return;
+    }
+
+    try {
+        const body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
+        const message = String(body.message || '').trim();
+        const history = Array.isArray(body.history) ? body.history : [];
+        const context = body.context || {};
+
+        if (!message) {
+            res.status(400).json({ error: 'message is required' });
+            return;
+        }
+
+        const normalizedHistory = history
+            .filter((item) => item && (item.role === 'user' || item.role === 'assistant') && typeof item.content === 'string')
+            .slice(-6)
+            .map((item) => ({ role: item.role, content: item.content.slice(0, 800) }));
+
+        const systemPrompt = [
+            'Eres Agente Perry, un asistente virtual de asesoria academica para universitarios.',
+            'Responde en espanol con tono profesional, claro y amable.',
+            'Da orientacion practica y evita prometer resultados imposibles.',
+            'Si el usuario pregunta por precio, explica que depende de rubrica, complejidad y plazo.',
+            `Contexto actual del cliente: tema=${context.topic || 'no definido'}, plazo=${context.deadline || 'no definido'}, urgencia=${context.urgency ? 'alta' : 'normal'}.`
+        ].join(' ');
+
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${openAiApiKey}`
+            },
+            body: JSON.stringify({
+                model,
+                temperature: 0.7,
+                max_tokens: 240,
+                messages: [
+                    { role: 'system', content: systemPrompt },
+                    ...normalizedHistory,
+                    { role: 'user', content: message.slice(0, 1200) }
+                ]
+            })
+        });
+
+        if (!response.ok) {
+            const errText = await response.text();
+            res.status(502).json({ error: 'Upstream AI error', details: errText.slice(0, 300) });
+            return;
+        }
+
+        const data = await response.json();
+        const reply = data?.choices?.[0]?.message?.content?.trim();
+
+        if (!reply) {
+            res.status(502).json({ error: 'Empty AI reply' });
+            return;
+        }
+
+        res.status(200).json({ reply, source: 'api' });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}

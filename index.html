@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agente Perry | Asesoría Académica</title>
+    <meta name="description" content="Asesoría académica exclusiva para universitarios: tareas, avances, portafolios, exámenes y cursos de ingeniería, matemáticas, economía y más.">
+    <meta name="theme-color" content="#071a33">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Agente Perry | Asesoría Académica">
+    <meta property="og:description" content="Apoyo universitario en tareas, exámenes, portafolios y avances con atención por WhatsApp.">
+    <meta property="og:image" content="descarga.jpeg">
+    <meta property="og:locale" content="es_PE">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Agente Perry | Asesoría Académica">
+    <meta name="twitter:description" content="Asesoría académica para universitarios con atención rápida por WhatsApp.">
+    <meta name="twitter:image" content="descarga.jpeg">
+    <meta name="keywords" content="asesoria academica, apoyo universitario, tareas universitarias, portafolio, examenes, cotizar tareas">
+    <link rel="icon" type="image/jpeg" href="descarga.jpeg">
+    <link rel="apple-touch-icon" href="descarga.jpeg">
+    <link rel="manifest" href="site.webmanifest">
+    <script>
+        window.ANALYTICS_CONFIG = {
+            gaMeasurementId: "G-XXXXXXXXXX",
+            metaPixelId: "000000000000000",
+            enableApiAssistant: true,
+            chatApiEndpoint: "/api/chat"
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="welcome-overlay" id="welcome-overlay" aria-live="polite">
+        <div class="welcome-card">
+            <p class="welcome-kicker">Bienvenido</p>
+            <h2>UTPINO, UN GUSTO TENERTE CON NOSOTROS</h2>
+        </div>
+    </div>
+
+    <div class="ambient-orb orb-a"></div>
+    <div class="ambient-orb orb-b"></div>
+    <div class="ambient-orb orb-c"></div>
+    <div class="floating-particles" aria-hidden="true"></div>
+
+    <div class="page-shell">
+        <header class="hero">
+            <div class="hero-badge">🐾 Agente Perry</div>
+            <div class="hero-layout">
+                <div class="hero-copy">
+                    <p class="eyebrow">ASESORÍA ACADÉMICA EXCLUSIVA PARA UNIVERSITARIOS! 🎓</p>
+                    <h1>Tu respaldo para aprobar con éxito cada curso.</h1>
+                    <p class="lead">
+                        ¿Tienes dificultades con la universidad? ¡Nosotros resolvemos con éxito tus materias y aseguramos tus notas (19/20)!
+                        Contamos con un grupo de amplia experiencia académica dispuesto a apoyarte en todo tu ciclo.
+                    </p>
+                    <div class="cta-row">
+                        <a class="primary-btn" href="https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20quiero%20cotizar%20mi%20trabajo%20acad%C3%A9mico." target="_blank" rel="noopener" data-track-whatsapp="hero-primary" data-track-label="cotizar-principal">
+                            📲 Cotizar por WhatsApp
+                        </a>
+                        <a class="secondary-btn" href="#cursos">📚 Ver cursos disponibles</a>
+                    </div>
+                </div>
+
+                <div class="hero-panel">
+                    <div class="perry-portrait-wrap">
+                        <img class="perry-portrait" src="descarga.jpeg" alt="Perry el ornitorrinco">
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">19/20</span>
+                        <span class="stat-label">Notas aseguradas</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Apoyo integral</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">🧠</span>
+                        <span class="stat-label">Tareas, proyectos, avances, exámenes y portafolios</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="ticker" aria-label="servicios destacados">
+            <div class="ticker-track">
+                <span>PORTAFOLIOS</span>
+                <span>•</span>
+                <span>EXÁMENES</span>
+                <span>•</span>
+                <span>AVANCES</span>
+                <span>•</span>
+                <span>TAREAS ACADÉMICAS</span>
+                <span>•</span>
+                <span>CURSOS UNIVERSITARIOS</span>
+            </div>
+        </section>
+
+        <section class="proof-strip" aria-label="puntos de confianza">
+            <article>
+                <strong>+580</strong>
+                <span>clientes atendidos</span>
+            </article>
+            <article>
+                <strong>24/7</strong>
+                <span>respuesta por WhatsApp</span>
+            </article>
+            <article>
+                <strong>95%</strong>
+                <span>clientes recurrentes</span>
+            </article>
+            <article>
+                <strong>1 a 1</strong>
+                <span>acompañamiento personalizado</span>
+            </article>
+        </section>
+
+        <main>
+            <section class="value-grid" id="servicios">
+                <article class="value-card">
+                    <h3>Entrega guiada y clara</h3>
+                    <p>Recibes orientación por avance para que presentes con seguridad, incluso en entregas con rúbrica estricta.</p>
+                </article>
+                <article class="value-card">
+                    <h3>Asistencia por especialidad</h3>
+                    <p>Te apoyamos por área: ingeniería, matemática, economía, contabilidad, investigación y más.</p>
+                </article>
+                <article class="value-card">
+                    <h3>Comunicación rápida</h3>
+                    <p>Atención directa por WhatsApp para resolver dudas, cambios y observaciones del docente.</p>
+                </article>
+            </section>
+
+            <section class="process-section" id="proceso">
+                <div class="section-heading">
+                    <h2>🚀 Cómo trabajamos contigo</h2>
+                    <p>Un flujo simple para que avances sin estrés y con control de cada entrega.</p>
+                </div>
+                <div class="process-grid">
+                    <article class="process-card">
+                        <span>01</span>
+                        <h3>Envías indicaciones</h3>
+                        <p>Comparte rúbrica, formato, fecha y alcance del curso por WhatsApp.</p>
+                    </article>
+                    <article class="process-card">
+                        <span>02</span>
+                        <h3>Recibes plan y cotización</h3>
+                        <p>Te proponemos tiempos, entregables y valor según complejidad real.</p>
+                    </article>
+                    <article class="process-card">
+                        <span>03</span>
+                        <h3>Avanzas con soporte</h3>
+                        <p>Te acompañamos hasta la entrega final con ajustes y seguimiento.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="areas" id="cursos">
+                <div class="section-heading">
+                    <h2>📚 Nuestros cursos y áreas de apoyo</h2>
+                    <p>Haz clic en cualquier curso y te llevará directamente al WhatsApp para cotizar tu trabajo.</p>
+                </div>
+
+                <div class="category-grid">
+                    <article class="area-card">
+                        <h3>💻 Ingeniería, Sistemas e Informática</h3>
+                        <div class="course-list">
+                            <button class="course-btn" data-course="Principios de Algoritmos (PSeInt)">Principios de Algoritmos (PSeInt)</button>
+                            <button class="course-btn" data-course="Taller de Programación (Java)">Taller de Programación (Java)</button>
+                            <button class="course-btn" data-course="Algoritmos y Estructuras de Datos (Java, C#)">Algoritmos y Estructuras de Datos (Java, C#)</button>
+                            <button class="course-btn" data-course="Programación Orientada a Objetos (POO)">Programación Orientada a Objetos (POO)</button>
+                            <button class="course-btn" data-course="Base de Datos (MySQL, SQL Server)">Base de Datos (MySQL, SQL Server)</button>
+                            <button class="course-btn" data-course="Desarrollo Web Integrado">Desarrollo Web Integrado</button>
+                            <button class="course-btn" data-course="Arquitectura de Computadoras">Arquitectura de Computadoras</button>
+                            <button class="course-btn" data-course="Curso Integrador I y II (Sistemas - Software)">Curso Integrador I y II</button>
+                            <button class="course-btn" data-course="Teoría General de Sistemas">Teoría General de Sistemas</button>
+                            <button class="course-btn" data-course="Informática para los Negocios">Informática para los Negocios</button>
+                            <button class="course-btn" data-course="Herramientas Informáticas (Excel y Excel Avanzado)">Herramientas Informáticas</button>
+                        </div>
+                    </article>
+
+                    <article class="area-card">
+                        <h3>🧮 Matemáticas, Física y Ciencias</h3>
+                        <div class="course-list">
+                            <button class="course-btn" data-course="Matemática para Ingenieros I, II y III / Cálculo 1 y 2">Matemática para Ingenieros I, II y III / Cálculo 1 y 2</button>
+                            <button class="course-btn" data-course="Nivelación de Matemática / Matemática Básica">Nivelación de Matemática / Matemática Básica</button>
+                            <button class="course-btn" data-course="Estadística Descriptiva y Probabilidades">Estadística Descriptiva y Probabilidades</button>
+                            <button class="course-btn" data-course="Estadística Inferencial (investigación, variables, intervalos)">Estadística Inferencial</button>
+                            <button class="course-btn" data-course="Cálculo Aplicado a la Física (CAF I, II y III) / Física Básica">Cálculo Aplicado a la Física / Física Básica</button>
+                            <button class="course-btn" data-course="Mecánica Clásica (proyectos finales)">Mecánica Clásica</button>
+                            <button class="course-btn" data-course="Química General y Orgánica">Química General y Orgánica</button>
+                            <button class="course-btn" data-course="Estática / Dinámica de Fluidos">Estática / Dinámica de Fluidos</button>
+                            <button class="course-btn" data-course="Máquinas Eléctricas Estáticas y Rotativas">Máquinas Eléctricas</button>
+                            <button class="course-btn" data-course="Transferencia de Calor y Masa">Transferencia de Calor y Masa</button>
+                        </div>
+                    </article>
+
+                    <article class="area-card">
+                        <h3>⚙️ Dibujo, Diseño y Procesos Industriales</h3>
+                        <div class="course-list">
+                            <button class="course-btn" data-course="Dibujo para Ingeniería / Dibujo CAD / AutoCAD (2D y 3D)">Dibujo para Ingeniería / CAD / AutoCAD</button>
+                            <button class="course-btn" data-course="Procesos para Ingeniería / Procesos de Manufactura">Procesos de Manufactura</button>
+                            <button class="course-btn" data-course="Operaciones Unitarias y Procesos Industriales">Operaciones Unitarias</button>
+                            <button class="course-btn" data-course="Simulación de Procesos (Arena, Solver)">Simulación de Procesos</button>
+                            <button class="course-btn" data-course="Investigación Operativa (Método Gráfico, Lingo, Modi)">Investigación Operativa</button>
+                            <button class="course-btn" data-course="Planeamiento y Control de Operaciones">Planeamiento y Control de Operaciones</button>
+                            <button class="course-btn" data-course="Ergonomía y Estudio del Trabajo">Ergonomía y Estudio del Trabajo</button>
+                            <button class="course-btn" data-course="Diseño de Productos y Servicios">Diseño de Productos y Servicios</button>
+                            <button class="course-btn" data-course="Herramientas de la Calidad">Herramientas de la Calidad</button>
+                        </div>
+                    </article>
+
+                    <article class="area-card">
+                        <h3>📊 Economía, Contabilidad y Finanzas</h3>
+                        <div class="course-list">
+                            <button class="course-btn" data-course="Economía Básica y General / Microeconomía y Macroeconomía">Economía Básica / Micro y Macro</button>
+                            <button class="course-btn" data-course="Fundamentos de Contabilidad y Finanzas">Fundamentos de Contabilidad y Finanzas</button>
+                            <button class="course-btn" data-course="Contabilidad General, Financiera, Gerencial y de Costos">Contabilidad General, Financiera y de Costos</button>
+                            <button class="course-btn" data-course="Auditoría Financiera u Operativa">Auditoría Financiera u Operativa</button>
+                            <button class="course-btn" data-course="Análisis de la Información y Estados Financieros (EEFF, Ratios)">Estados Financieros y Ratios</button>
+                            <button class="course-btn" data-course="Finanzas Aplicadas (TEA, financiamiento)">Finanzas Aplicadas</button>
+                            <button class="course-btn" data-course="Mercados Financieros (derivados, bonos, acciones)">Mercados Financieros</button>
+                            <button class="course-btn" data-course="Formulación y Evaluación Presupuestal">Formulación y Evaluación Presupuestal</button>
+                        </div>
+                    </article>
+
+                    <article class="area-card">
+                        <h3>💼 Administración, Negocios y Humanidades</h3>
+                        <div class="course-list">
+                            <button class="course-btn" data-course="Administración y Organización de Empresas">Administración y Organización de Empresas</button>
+                            <button class="course-btn" data-course="Dirección y Planeamiento Estratégico">Dirección y Planeamiento Estratégico</button>
+                            <button class="course-btn" data-course="Gestión de Ventas / Marketing Digital">Gestión de Ventas / Marketing Digital</button>
+                            <button class="course-btn" data-course="Investigación de Mercados">Investigación de Mercados</button>
+                            <button class="course-btn" data-course="Derecho Comercial">Derecho Comercial</button>
+                            <button class="course-btn" data-course="Comprensión y Redacción de Textos I y II">Comprensión y Redacción de Textos</button>
+                            <button class="course-btn" data-course="Investigación Académica / Formación y Taller para la Investigación">Investigación Académica</button>
+                            <button class="course-btn" data-course="Nivelación y Redacción I y II">Nivelación y Redacción</button>
+                            <button class="course-btn" data-course="Ciudadanía y Reflexión Ética">Ciudadanía y Reflexión Ética</button>
+                            <button class="course-btn" data-course="Individuo y Medio Ambiente">Individuo y Medio Ambiente</button>
+                            <button class="course-btn" data-course="Introducción a la Vida Universitaria">Introducción a la Vida Universitaria</button>
+                            <button class="course-btn" data-course="Sistemas complejos u otros cursos más">Otros cursos y sistemas complejos</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="testimonials">
+                <div class="section-heading">
+                    <h2>💬 Testimonios</h2>
+                    <p>Estudiantes que confiaron en Agente Perry y lograron avanzar con éxito en su universidad.</p>
+                </div>
+
+                <div class="testimonial-grid">
+                    <article class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Gracias a la asesoría, entregué mis tareas y avances a tiempo y mejoré muchísimo mi rendimiento en programación."</p>
+                        <span>— Estudiante de Sistemas</span>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Me ayudaron con mi portafolio y con la preparación de exámenes; el apoyo fue claro, rápido y muy efectivo."</p>
+                        <span>— Estudiante de Ingeniería</span>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Logré entender mejor mis materias y sentí que ya no estaba solo en la universidad. Excelente acompañamiento académico."</p>
+                        <span>— Estudiante universitario</span>
+                    </article>
+                </div>
+            </section>
+
+            <section class="guarantee-banner">
+                <div>
+                    <h2>🎯 Atención enfocada en resultados</h2>
+                    <p>Si tu docente deja observaciones, te ayudamos a responderlas con rapidez para que llegues bien a tu fecha de entrega.</p>
+                </div>
+                <a class="primary-btn" href="https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20quiero%20empezar%20mi%20asesoria%20hoy." target="_blank" rel="noopener" data-track-whatsapp="guarantee-banner" data-track-label="iniciar-ahora">Quiero iniciar ahora</a>
+            </section>
+
+            <section class="faq-section" id="faq">
+                <div class="section-heading">
+                    <h2>❓ Preguntas frecuentes</h2>
+                    <p>Resolvemos rápido las dudas más comunes antes de iniciar tu asesoría.</p>
+                </div>
+
+                <div class="faq-list">
+                    <details class="faq-item" open>
+                        <summary>¿Cómo cotizo mi trabajo?</summary>
+                        <p>Envíanos curso, rúbrica, formato y fecha límite. Con eso te respondemos con una cotización clara por WhatsApp.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Qué tipo de cursos cubren?</summary>
+                        <p>Trabajamos con cursos de ingeniería, sistemas, matemáticas, física, economía, contabilidad, investigación y humanidades.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Puedo pedir ajustes si el docente observa algo?</summary>
+                        <p>Sí. Te damos soporte para ajustes sobre la base de las observaciones y del alcance acordado.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>¿Atienden trabajos urgentes?</summary>
+                        <p>Sí, según disponibilidad. Escríbenos y te confirmamos el tiempo real para no prometer de más.</p>
+                    </details>
+                </div>
+            </section>
+
+            <section class="contact-strip">
+                <div class="contact-title">📲 ¡COMUNÍCATE RÁPIDAMENTE CON NOSOTROS!</div>
+                <p>Para cotizar tu trabajo de inmediato, comunícate a nuestro WhatsApp presionando el siguiente número:</p>
+                <a class="contact-phone" href="https://wa.me/51932598200" target="_blank" rel="noopener" data-track-whatsapp="contact-strip" data-track-label="numero-whatsapp">👉 https://wa.me/51932598200 👈</a>
+            </section>
+        </main>
+    </div>
+
+    <a class="mobile-sales-cta" href="https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20quiero%20cotizar%20ahora." target="_blank" rel="noopener" data-track-whatsapp="mobile-fixed-cta" data-track-label="cotizar-movil">
+        Cotizar Ahora por WhatsApp
+    </a>
+
+    <div class="assistant-widget open" id="assistant-widget">
+        <button class="assistant-toggle" id="assistant-toggle" type="button" aria-expanded="true">
+            <span>💬</span>
+            <span>Asistente Perry</span>
+        </button>
+
+        <div class="assistant-panel" id="assistant-panel">
+            <div class="assistant-header">
+                <div>
+                    <strong>Agente Perry</strong>
+                    <span>Online para ayudarte</span>
+                </div>
+                <div class="assistant-actions">
+                    <a class="assistant-whatsapp" href="https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20quiero%20cotizar%20mi%20trabajo%20acad%C3%A9mico." target="_blank" rel="noopener" data-track-whatsapp="assistant-header" data-track-label="boton-whatsapp-chat">
+                        WhatsApp
+                    </a>
+                    <button class="assistant-close" id="assistant-close" type="button" aria-label="Ocultar asistente">
+                        x
+                    </button>
+                </div>
+            </div>
+
+            <div class="assistant-messages" id="assistant-messages">
+                <div class="message bot intro-message">
+                    Qué tal crack, mi nombre es Agente Perry, estoy aquí para ayudarte en cualquier curso, examen, tarea, portafolio, avances o lo que sea que necesites en tus trabajos universitarios. Dime de qué se trata o contáctame al número de WhatsApp y envíame las indicaciones. El precio de los trabajos varía según lo que te pida el docente o la rúbrica, así que estoy a la espera crack y gracias por confiar en mí. ¡Saludos! Att. Perry.
+                </div>
+            </div>
+
+            <div class="assistant-quick-actions" aria-label="Acciones rápidas">
+                <button class="quick-chip" type="button" data-query="Quiero cotizar una tarea">💰 Cotizar</button>
+                <button class="quick-chip" type="button" data-query="Necesito ayuda con mi examen">📝 Examen</button>
+                <button class="quick-chip" type="button" data-query="Quiero ayuda con un portafolio">📚 Portafolio</button>
+                <button class="quick-chip" type="button" data-query="Necesito contactar por WhatsApp">📲 WhatsApp</button>
+            </div>
+
+            <form class="assistant-form" id="assistant-form">
+                <input id="assistant-input" type="text" placeholder="Escribe tu duda aquí..." autocomplete="off" />
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <button class="assistant-restore" id="assistant-restore" type="button" aria-label="Mostrar asistente">
+        Abrir asistente
+    </button>
+
+    <script>
+        const courseButtons = document.querySelectorAll('.course-btn');
+        const buttonAnimations = ['anim-float', 'anim-bounce', 'anim-wiggle', 'anim-shimmer', 'anim-tilt', 'anim-pulse'];
+        const analyticsConfig = window.ANALYTICS_CONFIG || {
+            gaMeasurementId: '',
+            metaPixelId: ''
+        };
+
+        function isConfigured(value, placeholder) {
+            return Boolean(value && value !== placeholder);
+        }
+
+        function loadScript(src) {
+            const script = document.createElement('script');
+            script.src = src;
+            script.async = true;
+            document.head.appendChild(script);
+        }
+
+        function initializeAnalytics() {
+            const hasGa = isConfigured(analyticsConfig.gaMeasurementId, 'G-XXXXXXXXXX');
+            const hasMeta = isConfigured(analyticsConfig.metaPixelId, '000000000000000');
+
+            if (hasGa) {
+                loadScript(`https://www.googletagmanager.com/gtag/js?id=${analyticsConfig.gaMeasurementId}`);
+                window.dataLayer = window.dataLayer || [];
+                window.gtag = function gtag() {
+                    window.dataLayer.push(arguments);
+                };
+                window.gtag('js', new Date());
+                window.gtag('config', analyticsConfig.gaMeasurementId);
+            }
+
+            if (hasMeta) {
+                !(function (f, b, e, v, n, t, s) {
+                    if (f.fbq) return;
+                    n = f.fbq = function () {
+                        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+                    };
+                    if (!f._fbq) f._fbq = n;
+                    n.push = n;
+                    n.loaded = true;
+                    n.version = '2.0';
+                    n.queue = [];
+                    t = b.createElement(e);
+                    t.async = true;
+                    t.src = v;
+                    s = b.getElementsByTagName(e)[0];
+                    s.parentNode.insertBefore(t, s);
+                }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js'));
+
+                window.fbq('init', analyticsConfig.metaPixelId);
+                window.fbq('track', 'PageView');
+            }
+        }
+
+        function trackEvent(name, params = {}) {
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', name, params);
+            }
+
+            if (typeof window.fbq === 'function') {
+                if (name === 'generate_lead' || name === 'whatsapp_click') {
+                    window.fbq('track', 'Lead', params);
+                } else {
+                    window.fbq('trackCustom', name, params);
+                }
+            }
+        }
+
+        function trackWhatsAppClick(source, label) {
+            trackEvent('whatsapp_click', {
+                source,
+                label
+            });
+        }
+
+        initializeAnalytics();
+
+        courseButtons.forEach((button, index) => {
+            const animationClass = buttonAnimations[index % buttonAnimations.length];
+            button.classList.add(animationClass);
+        });
+
+        function playPerrySound() {
+            const AudioContextCtor = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContextCtor) return;
+
+            const audioContext = new AudioContextCtor();
+            const now = audioContext.currentTime;
+            const notes = [392, 523.25, 659.25, 783.99];
+
+            notes.forEach((frequency, index) => {
+                const oscillator = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                oscillator.type = 'triangle';
+                oscillator.frequency.value = frequency;
+                gain.gain.setValueAtTime(0.0001, now + index * 0.1);
+                gain.gain.exponentialRampToValueAtTime(0.08, now + index * 0.1 + 0.03);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + index * 0.1 + 0.18);
+                oscillator.connect(gain);
+                gain.connect(audioContext.destination);
+                oscillator.start(now + index * 0.1);
+                oscillator.stop(now + index * 0.1 + 0.2);
+            });
+        }
+
+        const perryWrap = document.querySelector('.perry-portrait-wrap');
+
+        if (perryWrap) {
+            window.addEventListener('mousemove', (event) => {
+                const x = (event.clientX / window.innerWidth - 0.5) * 14;
+                const y = (event.clientY / window.innerHeight - 0.5) * -14;
+                perryWrap.style.transform = `rotateX(${y}deg) rotateY(${x}deg) translateY(-3px)`;
+            });
+
+            window.addEventListener('mouseleave', () => {
+                perryWrap.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0px)';
+            });
+        }
+
+        courseButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                playPerrySound();
+                button.classList.remove('is-pressed');
+                void button.offsetWidth;
+                button.classList.add('is-pressed');
+
+                const message = encodeURIComponent(`Hola Agente Perry, quiero cotizar el curso: ${button.dataset.course}`);
+                trackWhatsAppClick('course-button', button.dataset.course);
+                window.open(`https://wa.me/51932598200?text=${message}`, '_blank', 'noopener');
+
+                setTimeout(() => button.classList.remove('is-pressed'), 420);
+            });
+        });
+
+        const trackedWhatsAppLinks = document.querySelectorAll('[data-track-whatsapp]');
+        trackedWhatsAppLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                const source = link.getAttribute('data-track-whatsapp') || 'unknown';
+                const label = link.getAttribute('data-track-label') || link.textContent.trim();
+                trackWhatsAppClick(source, label);
+            });
+        });
+
+        const assistantWidget = document.getElementById('assistant-widget');
+        const assistantToggle = document.getElementById('assistant-toggle');
+        const assistantForm = document.getElementById('assistant-form');
+        const assistantInput = document.getElementById('assistant-input');
+        const assistantMessages = document.getElementById('assistant-messages');
+        const assistantClose = document.getElementById('assistant-close');
+        const assistantRestore = document.getElementById('assistant-restore');
+        const quickChips = document.querySelectorAll('.quick-chip');
+        const whatsappLink = 'https://wa.me/51932598200';
+        const assistantState = {
+            topic: '',
+            deadline: '',
+            urgency: false,
+            history: []
+        };
+        const assistantPositionKey = 'assistant_widget_position';
+        let isDraggingAssistant = false;
+        let suppressToggleClick = false;
+
+        function addAssistantMessage(text, type) {
+            const wrapper = document.createElement('div');
+            wrapper.className = `message ${type}`;
+            wrapper.textContent = text;
+            assistantMessages.appendChild(wrapper);
+            assistantMessages.scrollTop = assistantMessages.scrollHeight;
+        }
+
+        function randomChoice(options) {
+            return options[Math.floor(Math.random() * options.length)];
+        }
+
+        function normalizeText(text) {
+            return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        }
+
+        function setAssistantTyping(isTyping) {
+            const existingTyping = document.getElementById('assistant-typing');
+
+            if (isTyping && !existingTyping) {
+                const typingBubble = document.createElement('div');
+                typingBubble.id = 'assistant-typing';
+                typingBubble.className = 'message bot typing';
+                typingBubble.innerHTML = '<span></span><span></span><span></span>';
+                assistantMessages.appendChild(typingBubble);
+                assistantMessages.scrollTop = assistantMessages.scrollHeight;
+            }
+
+            if (!isTyping && existingTyping) {
+                existingTyping.remove();
+            }
+        }
+
+        function extractContext(text) {
+            const topicMap = [
+                { keywords: ['tarea', 'trabajo', 'ensayo'], label: 'tarea' },
+                { keywords: ['examen', 'parcial', 'quiz'], label: 'examen' },
+                { keywords: ['portafolio', 'portfolio'], label: 'portafolio' },
+                { keywords: ['avance', 'avance de'], label: 'avance' },
+                { keywords: ['proyecto'], label: 'proyecto' },
+                { keywords: ['curso', 'materia', 'asignatura'], label: 'curso' }
+            ];
+
+            const matchedTopic = topicMap.find((entry) => entry.keywords.some((keyword) => text.includes(keyword)));
+            const urgency = text.includes('hoy') || text.includes('manana') || text.includes('mañana') || text.includes('urgente') || text.includes('rapido') || text.includes('rápido');
+
+            if (matchedTopic) {
+                assistantState.topic = matchedTopic.label;
+            }
+
+            if (urgency) {
+                assistantState.urgency = true;
+            }
+
+            if (text.includes('hoy')) {
+                assistantState.deadline = 'hoy';
+            } else if (text.includes('manana') || text.includes('mañana')) {
+                assistantState.deadline = 'mañana';
+            }
+        }
+
+        function getAssistantReplyLocal(question) {
+            const text = normalizeText(question);
+            extractContext(text);
+            const asksForPrice = text.includes('precio') || text.includes('costo') || text.includes('cuanto') || text.includes('cuánto') || text.includes('cotizar') || text.includes('presupuesto');
+            const asksForContact = text.includes('whatsapp') || text.includes('contact') || text.includes('numero') || text.includes('número');
+            const asksForHelp = text.includes('ayuda') || text.includes('necesito') || text.includes('quiero') || text.includes('me puedes');
+            const asksForDeadline = text.includes('fecha') || text.includes('plazo') || text.includes('entrega');
+
+            if (asksForPrice) {
+                const topicHint = assistantState.topic ? ` para ${assistantState.topic}` : '';
+                return `El precio${topicHint} depende de la dificultad, la rúbrica y el plazo. Envíame las indicaciones y te doy una orientación clara para cotizarlo.`;
+            }
+
+            if (asksForContact) {
+                return `Puedes contactarme por WhatsApp aquí: ${whatsappLink}. Envíame el detalle de tu consulta y te respondo enseguida.`;
+            }
+
+            if (assistantState.topic) {
+                const deadlineHint = assistantState.deadline ? ` con entrega para ${assistantState.deadline}` : '';
+                const urgencyHint = assistantState.urgency ? ' Te recomiendo enviarme ya la rúbrica para priorizarlo.' : '';
+                return `Claro, veo que tu consulta está relacionada con ${assistantState.topic}${deadlineHint}. Cuéntame más detalles sobre lo que necesitas y te daré una orientación útil.${urgencyHint}`;
+            }
+
+            if (text.includes('gracias')) {
+                return 'Gracias a ti por confiar en mí. Si tienes otra duda, aquí estoy para ayudarte.';
+            }
+
+            if (asksForHelp) {
+                return 'Perfecto, dime exactamente qué necesitas resolver y te ayudaré con una respuesta clara y útil.';
+            }
+
+            if (asksForDeadline) {
+                return 'Entiendo. Cuéntame la fecha de entrega y las indicaciones del docente para ayudarte a priorizar mejor.';
+            }
+
+            return randomChoice([
+                'Entiendo tu consulta. Compárteme más detalles sobre el curso, la tarea o el trabajo para darte una respuesta más precisa.',
+                'Perfecto, te puedo apoyar con eso. Mándame las indicaciones, la rúbrica o el tema específico y te orientaré mejor.',
+                'Claro, dime qué necesitas exactamente y te responderé con una ayuda útil y directa.'
+            ]);
+        }
+
+        async function getAssistantReplyFromApi(question) {
+            if (!analyticsConfig.enableApiAssistant) {
+                return null;
+            }
+
+            const endpoint = analyticsConfig.chatApiEndpoint || '/api/chat';
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 8000);
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: question,
+                        history: assistantState.history.slice(-6),
+                        context: {
+                            topic: assistantState.topic,
+                            deadline: assistantState.deadline,
+                            urgency: assistantState.urgency
+                        }
+                    }),
+                    signal: controller.signal
+                });
+
+                if (!response.ok) {
+                    return null;
+                }
+
+                const data = await response.json();
+                if (data && typeof data.reply === 'string' && data.reply.trim()) {
+                    trackEvent('assistant_api_reply', { source: 'api' });
+                    return data.reply.trim();
+                }
+
+                return null;
+            } catch (error) {
+                return null;
+            } finally {
+                clearTimeout(timeout);
+            }
+        }
+
+        async function getAssistantReply(question) {
+            const apiReply = await getAssistantReplyFromApi(question);
+            if (apiReply) {
+                return apiReply;
+            }
+
+            trackEvent('assistant_api_fallback', { source: 'local' });
+            return getAssistantReplyLocal(question);
+        }
+
+        async function sendAssistantQuery(value) {
+            addAssistantMessage(value, 'user');
+            assistantState.history.push({ role: 'user', content: value });
+            setAssistantTyping(true);
+
+            setTimeout(async () => {
+                const reply = await getAssistantReply(value);
+                setAssistantTyping(false);
+                addAssistantMessage(reply, 'bot');
+                assistantState.history.push({ role: 'assistant', content: reply });
+
+                if (assistantState.history.length > 12) {
+                    assistantState.history = assistantState.history.slice(-12);
+                }
+            }, 350);
+        }
+
+        function clamp(value, min, max) {
+            return Math.min(Math.max(value, min), max);
+        }
+
+        function applyAssistantPosition(position) {
+            if (!position) return;
+            assistantWidget.style.left = `${position.left}px`;
+            assistantWidget.style.top = `${position.top}px`;
+            assistantWidget.style.right = 'auto';
+            assistantWidget.style.bottom = 'auto';
+        }
+
+        function saveAssistantPosition(left, top) {
+            localStorage.setItem(assistantPositionKey, JSON.stringify({ left, top }));
+        }
+
+        function restoreAssistantPosition() {
+            try {
+                const raw = localStorage.getItem(assistantPositionKey);
+                if (!raw) return;
+                const parsed = JSON.parse(raw);
+                if (typeof parsed.left === 'number' && typeof parsed.top === 'number') {
+                    applyAssistantPosition(parsed);
+                }
+            } catch (error) {
+                localStorage.removeItem(assistantPositionKey);
+            }
+        }
+
+        function enableAssistantDrag() {
+            let startX = 0;
+            let startY = 0;
+            let startLeft = 0;
+            let startTop = 0;
+
+            assistantToggle.addEventListener('pointerdown', (event) => {
+                if (event.button !== 0) return;
+                const rect = assistantWidget.getBoundingClientRect();
+                startX = event.clientX;
+                startY = event.clientY;
+                startLeft = rect.left;
+                startTop = rect.top;
+                isDraggingAssistant = false;
+
+                const onMove = (moveEvent) => {
+                    const deltaX = moveEvent.clientX - startX;
+                    const deltaY = moveEvent.clientY - startY;
+
+                    if (!isDraggingAssistant && (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5)) {
+                        isDraggingAssistant = true;
+                        assistantWidget.classList.add('is-dragging');
+                    }
+
+                    if (!isDraggingAssistant) return;
+
+                    const widgetRect = assistantWidget.getBoundingClientRect();
+                    const maxLeft = window.innerWidth - widgetRect.width - 10;
+                    const maxTop = window.innerHeight - widgetRect.height - 10;
+                    const nextLeft = clamp(startLeft + deltaX, 10, Math.max(10, maxLeft));
+                    const nextTop = clamp(startTop + deltaY, 10, Math.max(10, maxTop));
+
+                    assistantWidget.style.left = `${nextLeft}px`;
+                    assistantWidget.style.top = `${nextTop}px`;
+                    assistantWidget.style.right = 'auto';
+                    assistantWidget.style.bottom = 'auto';
+                };
+
+                const onUp = () => {
+                    window.removeEventListener('pointermove', onMove);
+                    window.removeEventListener('pointerup', onUp);
+                    assistantWidget.classList.remove('is-dragging');
+
+                    if (isDraggingAssistant) {
+                        const rect = assistantWidget.getBoundingClientRect();
+                        saveAssistantPosition(rect.left, rect.top);
+                        suppressToggleClick = true;
+                        setTimeout(() => {
+                            suppressToggleClick = false;
+                        }, 60);
+                    }
+                };
+
+                window.addEventListener('pointermove', onMove);
+                window.addEventListener('pointerup', onUp);
+            });
+        }
+
+        function setupRevealAnimation() {
+            const revealTargets = document.querySelectorAll('.proof-strip, .value-card, .process-card, .area-card, .testimonial-card, .guarantee-banner, .faq-item, .contact-strip');
+            revealTargets.forEach((item) => item.classList.add('reveal'));
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15
+            });
+
+            revealTargets.forEach((item) => observer.observe(item));
+        }
+
+        assistantClose.addEventListener('click', () => {
+            assistantWidget.classList.add('is-hidden');
+            assistantRestore.classList.add('is-visible');
+            trackEvent('assistant_closed', {});
+        });
+
+        assistantRestore.addEventListener('click', () => {
+            assistantWidget.classList.remove('is-hidden');
+            assistantRestore.classList.remove('is-visible');
+            assistantWidget.classList.add('open');
+            assistantToggle.setAttribute('aria-expanded', 'true');
+            trackEvent('assistant_restored', {});
+        });
+
+        assistantToggle.addEventListener('click', () => {
+            if (suppressToggleClick) {
+                return;
+            }
+            const isOpen = assistantWidget.classList.toggle('open');
+            assistantToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        quickChips.forEach((chip) => {
+            chip.addEventListener('click', async () => {
+                const value = chip.dataset.query.trim();
+                trackEvent('chat_quick_chip_click', { query: value });
+                await sendAssistantQuery(value);
+            });
+        });
+
+        assistantForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const value = assistantInput.value.trim();
+
+            if (!value) {
+                return;
+            }
+
+            trackEvent('chat_user_message', { length: value.length });
+            await sendAssistantQuery(value);
+            assistantInput.value = '';
+        });
+
+        restoreAssistantPosition();
+        enableAssistantDrag();
+        setupRevealAnimation();
+
+        const welcomeOverlay = document.getElementById('welcome-overlay');
+        if (welcomeOverlay) {
+            setTimeout(() => {
+                welcomeOverlay.classList.add('is-leaving');
+                setTimeout(() => {
+                    welcomeOverlay.remove();
+                }, 820);
+            }, 2200);
+        }
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Agente Perry | Asesoria Academica",
+            "description": "Apoyo academico para universitarios en tareas, avances, examenes y portafolios.",
+            "url": "https://example.com",
+            "image": "descarga.jpeg",
+            "telephone": "+51-932-598-200",
+            "areaServed": "PE",
+            "sameAs": [
+                "https://wa.me/51932598200"
+            ]
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "Agente Perry | Asesoria Academica",
+  "short_name": "Agente Perry",
+  "description": "Asesoria academica para universitarios: tareas, examenes, avances y portafolios.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#071a33",
+  "theme_color": "#071a33",
+  "icons": [
+    {
+      "src": "descarga.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
