@@ -634,7 +634,12 @@
         }
 
         async function getAssistantReply(question) {
-            trackEvent('assistant_fixed_presentation', {});
+            const apiReply = await getAssistantReplyFromApi(question);
+            if (apiReply) {
+                return apiReply;
+            }
+
+            trackEvent('assistant_api_fallback', { source: 'local-fixed-presentation' });
             return getAssistantReplyLocal(question);
         }
 
