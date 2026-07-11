@@ -102,6 +102,13 @@ body::after {
     color: #f8fbff;
 }
 
+.welcome-wave {
+    display: inline-block;
+    margin-left: 6px;
+    transform-origin: 70% 70%;
+    animation: waveHand 1s ease-in-out infinite;
+}
+
 .ambient-orb {
     position: fixed;
     border-radius: 50%;
@@ -1036,6 +1043,15 @@ h1 {
         opacity: 1;
         transform: translateY(0) scale(1);
     }
+}
+@keyframes waveHand {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(16deg); }
+    30% { transform: rotate(-10deg); }
+    45% { transform: rotate(14deg); }
+    60% { transform: rotate(-6deg); }
+    75% { transform: rotate(9deg); }
+    100% { transform: rotate(0deg); }
 }
 
 @keyframes clickPop {
