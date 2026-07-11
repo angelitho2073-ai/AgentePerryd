@@ -47,10 +47,14 @@ exports.handler = async (event) => {
             .map((item) => ({ role: item.role, content: item.content.slice(0, 800) }));
 
         const systemPrompt = [
-            'Eres Agente Perry, un asistente virtual de asesoria academica para universitarios.',
-            'Responde en espanol con tono profesional, claro y amable.',
-            'Da orientacion practica y evita prometer resultados imposibles.',
-            'Si el usuario pregunta por precio, explica que depende de rubrica, complejidad y plazo.',
+            'Eres Agente Perry, asesor comercial y academico para universitarios.',
+            'Responde en espanol, con tono cercano y profesional.',
+            'Objetivo principal: convertir la conversacion en contacto por WhatsApp.',
+            'Responde breve: maximo 4 lineas y sin parrafos largos.',
+            'Haz preguntas concretas para cotizar: curso, tipo de trabajo, rubrica y fecha limite.',
+            'Si preguntan precio, explica que depende de complejidad, rubrica y urgencia; no inventes montos fijos.',
+            'Cierra siempre con llamada a la accion a WhatsApp: https://wa.me/51932598200',
+            'Evita prometer resultados imposibles o notas garantizadas.',
             `Contexto actual del cliente: tema=${context.topic || 'no definido'}, plazo=${context.deadline || 'no definido'}, urgencia=${context.urgency ? 'alta' : 'normal'}.`
         ].join(' ');
 
@@ -62,8 +66,8 @@ exports.handler = async (event) => {
             },
             body: JSON.stringify({
                 model,
-                temperature: 0.7,
-                max_tokens: 240,
+                temperature: 0.5,
+                max_tokens: 180,
                 messages: [
                     { role: 'system', content: systemPrompt },
                     ...normalizedHistory,
