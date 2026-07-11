@@ -585,7 +585,27 @@
         }
 
         function getAssistantReplyLocal(question) {
-            return assistantPresentationMessage;
+            const text = normalizeText(question);
+            extractContext(text);
+
+            if (text.includes('precio') || text.includes('costo') || text.includes('cotizar') || text.includes('cuanto')) {
+                return 'El precio depende de la rúbrica, dificultad y fecha de entrega. Si me compartes esos 3 datos, te doy una cotización más precisa.';
+            }
+
+            if (text.includes('whatsapp') || text.includes('numero') || text.includes('número') || text.includes('contacto')) {
+                return `Claro crack. Escríbeme por WhatsApp aquí: ${whatsappLink} y envíame las indicaciones completas.`;
+            }
+
+            if (assistantState.topic) {
+                const deadlineHint = assistantState.deadline ? ` para ${assistantState.deadline}` : '';
+                return `Perfecto, te apoyo con ${assistantState.topic}${deadlineHint}. Envíame curso, rúbrica y lo que te pidió el docente para orientarte mejor.`;
+            }
+
+            return randomChoice([
+                'Claro crack, cuéntame de qué trata tu trabajo y te ayudo a organizarlo.',
+                'Te ayudo con eso. Pásame curso, tema y fecha límite para darte una mejor guía.',
+                'Perfecto, envíame las indicaciones del docente y te respondo con un plan claro.'
+            ]);
         }
 
         async function getAssistantReplyFromApi(question) {
@@ -639,7 +659,7 @@
                 return apiReply;
             }
 
-            trackEvent('assistant_api_fallback', { source: 'local-fixed-presentation' });
+            trackEvent('assistant_api_fallback', { source: 'local-dynamic' });
             return getAssistantReplyLocal(question);
         }
 
