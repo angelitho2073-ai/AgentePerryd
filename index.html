@@ -355,7 +355,7 @@
 
             <div class="assistant-messages" id="assistant-messages">
                 <div class="message bot intro-message">
-                    Qué tal crack, mi nombre es Agente Perry, soy el asistente virtual que te estare atentiendo estoy aquí para ayudarte en cualquier curso, examen, tarea, portafolio, avances o lo que sea que necesites en tus trabajos universitarios. Dime de qué se trata o contáctame al número de WhatsApp y envíame las indicaciones. El precio de los trabajos varía según lo que te pida el docente o la rúbrica, así que estoy a la espera crack y gracias por confiar en mí. ¡Saludos! Att. Perry.
+                    ¡Qué tal crack! 👋😎 Soy Agente Perry, tu asistente virtual de asesorías académicas y exámenes 📚🧠. Estoy aquí para ayudarte en cursos, tareas, portafolios, avances y evaluaciones con atención profesional, rápida y clara. Si estás con estrés universitario, tranqui: aquí no juzgamos, aquí resolvemos 😄. Cuéntame tu caso y te guío paso a paso; si quieres cerrar más rápido, te atiendo por WhatsApp al 932598200. El precio siempre se define según rúbrica, dificultad y tiempo de entrega. ¡Gracias por confiar en mí, crack! Att. Perry ✅
                 </div>
             </div>
 
@@ -530,7 +530,7 @@
             urgency: false,
             history: []
         };
-        const assistantPresentationMessage = 'Qué tal crack, mi nombre es Agente Perry, soy el asistente virtual que te estare atentiendo estoy aquí para ayudarte en cualquier curso, examen, tarea, portafolio, avances o lo que sea que necesites en tus trabajos universitarios. Dime de qué se trata o contáctame al número de WhatsApp y envíame las indicaciones. El precio de los trabajos varía según lo que te pida el docente o la rúbrica, así que estoy a la espera crack y gracias por confiar en mí. ¡Saludos! Att. Perry.';
+        const assistantPresentationMessage = '¡Qué tal crack! 👋😎 Soy Agente Perry, tu asistente virtual de asesorías académicas y exámenes 📚🧠. Estoy aquí para ayudarte en cursos, tareas, portafolios, avances y evaluaciones con atención profesional, rápida y clara. Si estás con estrés universitario, tranqui: aquí no juzgamos, aquí resolvemos 😄. Cuéntame tu caso y te guío paso a paso; si quieres cerrar más rápido, te atiendo por WhatsApp al 932598200. El precio siempre se define según rúbrica, dificultad y tiempo de entrega. ¡Gracias por confiar en mí, crack! Att. Perry ✅';
         const assistantPositionKey = 'assistant_widget_position';
         let isDraggingAssistant = false;
         let suppressToggleClick = false;
@@ -604,23 +604,23 @@
             const hasTimeInfo = /\b\d+\s*(min|minuto|minutos|h|hora|horas)\b/.test(text);
 
             if (text.includes('pago') || text.includes('yape') || text.includes('plin') || text.includes('cerrar') || text.includes('trato') || text.includes('abono') || text.includes('sena') || text.includes('seña')) {
-                return 'Perfecto crack. Por seguridad, para metodos de pago y cierre de trato te doy la informacion por WhatsApp al 932598200.';
+                return 'Perfecto crack 💼✅. Por seguridad, para metodos de pago y cierre de trato te doy la informacion por WhatsApp al 932598200.';
             }
 
             if (alreadyInExam && !hasTimeInfo) {
-                return 'Entendido crack. Si ya estas en examen, dime cuanto tiempo te queda y te ayudo a priorizar rapido.';
+                return 'Entendido crack ⏱️. Si ya estas en examen, dime cuanto tiempo te queda y te ayudo a priorizar rapido y con cabeza fria 😎.';
             }
 
             if (mentionsExam && !alreadyInExam) {
-                return 'Perfecto, te apoyo con ese examen. ¿Que fecha es, a que hora empieza y que temas entran?';
+                return 'Perfecto, te apoyo con ese examen 📘. ¿Que fecha es, a que hora empieza y que temas entran?';
             }
 
             if (text.includes('precio') || text.includes('costo') || text.includes('cotizar') || text.includes('cuanto')) {
-                return 'El precio depende de la rúbrica, dificultad y fecha de entrega. Si me compartes esos 3 datos, te doy una cotización más precisa.';
+                return 'El precio depende de la rúbrica, dificultad y fecha de entrega 💰. Si me compartes esos 3 datos, te doy una cotización más precisa.';
             }
 
             if (text.includes('whatsapp') || text.includes('numero') || text.includes('número') || text.includes('contacto')) {
-                return `Claro crack. Escríbeme por WhatsApp aquí: ${whatsappLink} y envíame las indicaciones completas.`;
+                return `Claro crack 📲. Escríbeme por WhatsApp aquí: ${whatsappLink} y envíame las indicaciones completas.`;
             }
 
             if (assistantState.topic) {
