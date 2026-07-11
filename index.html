@@ -343,7 +343,7 @@
 
             <div class="assistant-messages" id="assistant-messages">
                 <div class="message bot intro-message">
-                    Qué tal crack, mi nombre es Agente Perry, estoy aquí para ayudarte en cualquier curso, examen, tarea, portafolio, avances o lo que sea que necesites en tus trabajos universitarios. Dime de qué se trata o contáctame al número de WhatsApp y envíame las indicaciones. El precio de los trabajos varía según lo que te pida el docente o la rúbrica, así que estoy a la espera crack y gracias por confiar en mí. ¡Saludos! Att. Perry.
+                    Qué tal crack, mi nombre es Agente Perry, soy el asistente virtual que te estare atentiendo estoy aquí para ayudarte en cualquier curso, examen, tarea, portafolio, avances o lo que sea que necesites en tus trabajos universitarios. Dime de qué se trata o contáctame al número de WhatsApp y envíame las indicaciones. El precio de los trabajos varía según lo que te pida el docente o la rúbrica, así que estoy a la espera crack y gracias por confiar en mí. ¡Saludos! Att. Perry.
                 </div>
             </div>
 
@@ -525,6 +525,7 @@
             urgency: false,
             history: []
         };
+        const assistantPresentationMessage = 'Qué tal crack, mi nombre es Agente Perry, soy el asistente virtual que te estare atentiendo estoy aquí para ayudarte en cualquier curso, examen, tarea, portafolio, avances o lo que sea que necesites en tus trabajos universitarios. Dime de qué se trata o contáctame al número de WhatsApp y envíame las indicaciones. El precio de los trabajos varía según lo que te pida el docente o la rúbrica, así que estoy a la espera crack y gracias por confiar en mí. ¡Saludos! Att. Perry.';
         const assistantPositionKey = 'assistant_widget_position';
         let isDraggingAssistant = false;
         let suppressToggleClick = false;
@@ -591,45 +592,7 @@
         }
 
         function getAssistantReplyLocal(question) {
-            const text = normalizeText(question);
-            extractContext(text);
-            const asksForPrice = text.includes('precio') || text.includes('costo') || text.includes('cuanto') || text.includes('cuánto') || text.includes('cotizar') || text.includes('presupuesto');
-            const asksForContact = text.includes('whatsapp') || text.includes('contact') || text.includes('numero') || text.includes('número');
-            const asksForHelp = text.includes('ayuda') || text.includes('necesito') || text.includes('quiero') || text.includes('me puedes');
-            const asksForDeadline = text.includes('fecha') || text.includes('plazo') || text.includes('entrega');
-
-            if (asksForPrice) {
-                const topicHint = assistantState.topic ? ` para ${assistantState.topic}` : '';
-                return `El precio${topicHint} depende de la dificultad, la rúbrica y el plazo. Envíame las indicaciones y te doy una orientación clara para cotizarlo.`;
-            }
-
-            if (asksForContact) {
-                return `Puedes contactarme por WhatsApp aquí: ${whatsappLink}. Envíame el detalle de tu consulta y te respondo enseguida.`;
-            }
-
-            if (assistantState.topic) {
-                const deadlineHint = assistantState.deadline ? ` con entrega para ${assistantState.deadline}` : '';
-                const urgencyHint = assistantState.urgency ? ' Te recomiendo enviarme ya la rúbrica para priorizarlo.' : '';
-                return `Claro, veo que tu consulta está relacionada con ${assistantState.topic}${deadlineHint}. Cuéntame más detalles sobre lo que necesitas y te daré una orientación útil.${urgencyHint}`;
-            }
-
-            if (text.includes('gracias')) {
-                return 'Gracias a ti por confiar en mí. Si tienes otra duda, aquí estoy para ayudarte.';
-            }
-
-            if (asksForHelp) {
-                return 'Perfecto, dime exactamente qué necesitas resolver y te ayudaré con una respuesta clara y útil.';
-            }
-
-            if (asksForDeadline) {
-                return 'Entiendo. Cuéntame la fecha de entrega y las indicaciones del docente para ayudarte a priorizar mejor.';
-            }
-
-            return randomChoice([
-                'Entiendo tu consulta. Compárteme más detalles sobre el curso, la tarea o el trabajo para darte una respuesta más precisa.',
-                'Perfecto, te puedo apoyar con eso. Mándame las indicaciones, la rúbrica o el tema específico y te orientaré mejor.',
-                'Claro, dime qué necesitas exactamente y te responderé con una ayuda útil y directa.'
-            ]);
+            return assistantPresentationMessage;
         }
 
         async function getAssistantReplyFromApi(question) {
@@ -678,12 +641,7 @@
         }
 
         async function getAssistantReply(question) {
-            const apiReply = await getAssistantReplyFromApi(question);
-            if (apiReply) {
-                return apiReply;
-            }
-
-            trackEvent('assistant_api_fallback', { source: 'local' });
+            trackEvent('assistant_fixed_presentation', {});
             return getAssistantReplyLocal(question);
         }
 
