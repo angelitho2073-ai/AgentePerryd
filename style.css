@@ -27,9 +27,9 @@ body {
     font-family: "Manrope", "Segoe UI", sans-serif;
     color: var(--text);
     background:
-        radial-gradient(circle at top left, rgba(20, 184, 166, 0.15), transparent 30%),
-        radial-gradient(circle at 85% 10%, rgba(14, 165, 233, 0.14), transparent 30%),
-        linear-gradient(135deg, #0b1220, #101a2e 52%, #111f36 100%);
+        radial-gradient(circle at top left, rgba(14, 165, 233, 0.12), transparent 34%),
+        radial-gradient(circle at 85% 10%, rgba(20, 184, 166, 0.1), transparent 34%),
+        linear-gradient(145deg, #f4f7fb, #e9eff7 52%, #e5ecf6 100%);
 }
 
 body::before {
@@ -38,10 +38,10 @@ body::before {
     inset: 0;
     pointer-events: none;
     background:
-        linear-gradient(rgba(8, 15, 30, 0.72), rgba(5, 9, 21, 0.9)),
-        url("descarga.jpeg") center center / cover no-repeat;
-    opacity: 0.28;
-    transform: scale(1.02);
+        radial-gradient(circle at 16% 18%, rgba(59, 130, 246, 0.08), transparent 34%),
+        radial-gradient(circle at 82% 72%, rgba(13, 148, 136, 0.08), transparent 36%);
+    opacity: 1;
+    transform: none;
     z-index: -3;
 }
 
@@ -51,8 +51,7 @@ body::after {
     inset: 0;
     pointer-events: none;
     background:
-        radial-gradient(circle at center, transparent 40%, rgba(4, 10, 23, 0.76) 100%),
-        linear-gradient(180deg, rgba(7, 17, 33, 0.2), rgba(7, 17, 33, 0.65));
+        linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(219, 229, 241, 0.28));
     z-index: -1;
 }
 
@@ -114,7 +113,7 @@ body::after {
     border-radius: 50%;
     pointer-events: none;
     filter: blur(8px);
-    opacity: 0.45;
+    opacity: 0.22;
     z-index: -1;
 }
 
@@ -157,7 +156,7 @@ body::after {
         radial-gradient(circle at 70% 80%, rgba(137, 255, 215,0.5) 0 1px, transparent 1.8px);
     background-size: 220px 220px, 260px 260px, 280px 280px, 300px 300px;
     animation: particlesDrift 22s linear infinite;
-    opacity: 0.65;
+    opacity: 0.2;
 }
 
 .page-shell {
