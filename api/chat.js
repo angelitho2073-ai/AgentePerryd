@@ -31,7 +31,7 @@ export default async function handler(req, res) {
             }
 
             if (/pago|abono|yape|plin|cerrar|trato|seña|sena/i.test(message)) {
-                base.push('Para cerrar el trato, aceptamos Yape o Plin al numero completo +51 932598200.');
+                base.push('Por seguridad, para metodos de pago y cierre de trato te brindamos la informacion directamente por WhatsApp al 932598200.');
             }
 
             if (/whatsapp|contacto|numero|número/i.test(message)) {
@@ -62,7 +62,8 @@ export default async function handler(req, res) {
             'Si el cliente dice que ya esta en examen: pregunta cuanto tiempo le queda.',
             'Si preguntan precio, explica que depende de complejidad, rubrica y urgencia; no inventes montos fijos.',
             'Comparte el enlace de WhatsApp solo una vez por conversacion; si ya lo compartiste, no repitas el numero ni el enlace en cada respuesta.',
-            'Cuando el cliente quiera cerrar, pagar, abonar o reservar, indica metodos de pago disponibles: Yape o Plin al numero completo +51 932598200.',
+            'Cuando el cliente pregunte por metodo de pago, no des numeros de Yape/Plin.',
+            'Para mas informacion, seguridad y cierre de trato, dirigelos por WhatsApp al 932598200.',
             'Cierra con llamada a la accion breve, sin repetir datos innecesarios.',
             'Evita prometer resultados imposibles o notas garantizadas.',
             `Contexto actual del cliente: tema=${context.topic || 'no definido'}, plazo=${context.deadline || 'no definido'}, urgencia=${context.urgency ? 'alta' : 'normal'}.`
