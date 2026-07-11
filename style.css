@@ -787,13 +787,15 @@ h1 {
 }
 
 .message.bot {
-    background: linear-gradient(135deg, rgba(51, 65, 85, 0.64), rgba(30, 41, 59, 0.74));
-    color: #edf7ff;
+    background: linear-gradient(135deg, rgba(186, 230, 253, 0.9), rgba(125, 211, 252, 0.88));
+    color: #04263d;
+    border: 1px solid rgba(56, 189, 248, 0.45);
 }
 
 .message.user {
-    background: linear-gradient(135deg, rgba(20, 184, 166, 0.42), rgba(13, 148, 136, 0.44));
+    background: linear-gradient(135deg, rgba(14, 116, 144, 0.86), rgba(3, 105, 161, 0.9));
     color: #ffffff;
+    border: 1px solid rgba(125, 211, 252, 0.28);
     justify-self: end;
 }
 

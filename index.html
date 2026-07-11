@@ -587,9 +587,20 @@
         function getAssistantReplyLocal(question) {
             const text = normalizeText(question);
             extractContext(text);
+            const mentionsExam = text.includes('examen') || text.includes('parcial') || text.includes('quiz');
+            const alreadyInExam = text.includes('ya estoy en examen') || text.includes('estoy en examen') || text.includes('en pleno examen');
+            const hasTimeInfo = /\b\d+\s*(min|minuto|minutos|h|hora|horas)\b/.test(text);
 
             if (text.includes('pago') || text.includes('yape') || text.includes('plin') || text.includes('cerrar') || text.includes('trato') || text.includes('abono') || text.includes('sena') || text.includes('seña')) {
                 return 'Perfecto crack, para cerrar el trato aceptamos Yape o Plin al numero completo +51 932598200. Si quieres avanzamos de una vez.';
+            }
+
+            if (alreadyInExam && !hasTimeInfo) {
+                return 'Entendido crack. Si ya estas en examen, dime cuanto tiempo te queda y te ayudo a priorizar rapido.';
+            }
+
+            if (mentionsExam && !alreadyInExam) {
+                return 'Perfecto, te apoyo con ese examen. ¿Que fecha es, a que hora empieza y que temas entran?';
             }
 
             if (text.includes('precio') || text.includes('costo') || text.includes('cotizar') || text.includes('cuanto')) {
