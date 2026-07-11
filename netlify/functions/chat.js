@@ -27,12 +27,19 @@ exports.handler = async (event) => {
                 'Excelente, te puedo ayudar con eso.',
                 `Tema detectado: ${context.topic || 'general'}.`,
                 `Plazo: ${context.deadline || 'por definir'}.`,
-                'Para cotizarte exacto necesito: curso, tipo de trabajo, rubrica y fecha limite.',
-                'Si deseas, te dejo una propuesta inicial ahora mismo y la ajustamos por WhatsApp.'
+                'Para cotizarte exacto necesito: curso, tipo de trabajo, rubrica y fecha limite.'
             ];
 
             if (/precio|costo|cuanto/i.test(message)) {
                 base.push('El precio varía segun complejidad, cantidad de avances y urgencia de entrega.');
+            }
+
+            if (/pago|abono|yape|plin|cerrar|trato|seña|sena/i.test(message)) {
+                base.push('Para cerrar el trato, puedes pagar por Yape o Plin.');
+            }
+
+            if (/whatsapp|contacto|numero|número/i.test(message)) {
+                base.push('Te contacto por WhatsApp para cerrar detalles.');
             }
 
             return {
@@ -53,7 +60,9 @@ exports.handler = async (event) => {
             'Responde breve: maximo 4 lineas y sin parrafos largos.',
             'Haz preguntas concretas para cotizar: curso, tipo de trabajo, rubrica y fecha limite.',
             'Si preguntan precio, explica que depende de complejidad, rubrica y urgencia; no inventes montos fijos.',
-            'Cierra siempre con llamada a la accion a WhatsApp: https://wa.me/51932598200',
+            'Comparte el enlace de WhatsApp solo una vez por conversacion; si ya lo compartiste, no repitas el numero ni el enlace en cada respuesta.',
+            'Cuando el cliente quiera cerrar, pagar, abonar o reservar, indica metodos de pago disponibles: Yape o Plin.',
+            'Cierra con llamada a la accion breve, sin repetir datos innecesarios.',
             'Evita prometer resultados imposibles o notas garantizadas.',
             `Contexto actual del cliente: tema=${context.topic || 'no definido'}, plazo=${context.deadline || 'no definido'}, urgencia=${context.urgency ? 'alta' : 'normal'}.`
         ].join(' ');
