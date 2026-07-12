@@ -31,7 +31,7 @@ export default async function handler(req, res) {
             }
 
             if (/pago|abono|yape|plin|cerrar|trato|seña|sena/i.test(message)) {
-                base.push('Por seguridad, para metodos de pago y cierre de trato te brindamos la informacion directamente por WhatsApp al 932598200.');
+                base.push('Metodo de pago: escanea el QR mostrado en el chat web. Pago a nombre de Kevin Nima; luego manda el vaucher. Para mayor seguridad tuya y la de mi creador, dirigete a: https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20te%20mando%20mi%20vaucher%20de%20pago.');
             }
 
             if (/whatsapp|contacto|numero|número/i.test(message)) {
@@ -64,8 +64,7 @@ export default async function handler(req, res) {
             'Si el cliente dice que ya esta en examen: pregunta cuanto tiempo le queda.',
             'Si preguntan precio, explica que depende de complejidad, rubrica y urgencia; no inventes montos fijos.',
             'Comparte el enlace de WhatsApp solo una vez por conversacion; si ya lo compartiste, no repitas el numero ni el enlace en cada respuesta.',
-            'Cuando el cliente pregunte por metodo de pago, no des numeros de Yape/Plin.',
-            'Para mas informacion, seguridad y cierre de trato, dirigelos por WhatsApp al 932598200.',
+            'Cuando el cliente pregunte por metodo de pago, responde exactamente esto en 1 o 2 lineas: "Metodo de pago: escanea el QR mostrado en el chat web. Pago a nombre de Kevin Nima; luego manda el vaucher. Para mayor seguridad tuya y la de mi creador, dirigete a: https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20te%20mando%20mi%20vaucher%20de%20pago."',
             'Cierra con llamada a la accion breve, sin repetir datos innecesarios.',
             'Evita prometer resultados imposibles o notas garantizadas.',
             `Contexto actual del cliente: tema=${context.topic || 'no definido'}, plazo=${context.deadline || 'no definido'}, urgencia=${context.urgency ? 'alta' : 'normal'}.`

@@ -543,12 +543,44 @@
             assistantMessages.scrollTop = assistantMessages.scrollHeight;
         }
 
+        function addAssistantPaymentMessage() {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'message bot payment-message';
+
+            const text = document.createElement('p');
+            text.className = 'payment-copy';
+            text.textContent = 'Metodo de pago: escanea este QR. Pago a nombre de Kevin Nima; luego mandas el vaucher. Para mayor seguridad tuya y la de mi creador, dirigete directo al WhatsApp.';
+
+            const qr = document.createElement('img');
+            qr.className = 'payment-qr';
+            qr.src = 'WhatsApp Image 2026-07-06 at 12.57.07 PM.jpeg';
+            qr.alt = 'QR de pago a nombre de Kevin Nima';
+            qr.loading = 'lazy';
+
+            const link = document.createElement('a');
+            link.className = 'payment-wa-link';
+            link.href = 'https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20te%20mando%20mi%20vaucher%20de%20pago.';
+            link.target = '_blank';
+            link.rel = 'noopener';
+            link.textContent = 'Enviar vaucher por WhatsApp';
+
+            wrapper.appendChild(text);
+            wrapper.appendChild(qr);
+            wrapper.appendChild(link);
+            assistantMessages.appendChild(wrapper);
+            assistantMessages.scrollTop = assistantMessages.scrollHeight;
+        }
+
         function randomChoice(options) {
             return options[Math.floor(Math.random() * options.length)];
         }
 
         function normalizeText(text) {
             return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        }
+
+        function isPaymentQuery(text) {
+            return /pago|metodo de pago|metodo|abono|yape|plin|vaucher|voucher|transferencia|deposito|dep[oó]sito/.test(text);
         }
 
         function setAssistantTyping(isTyping) {
@@ -603,8 +635,8 @@
             const alreadyInExam = text.includes('ya estoy en examen') || text.includes('estoy en examen') || text.includes('en pleno examen');
             const hasTimeInfo = /\b\d+\s*(min|minuto|minutos|h|hora|horas)\b/.test(text);
 
-            if (text.includes('pago') || text.includes('yape') || text.includes('plin') || text.includes('cerrar') || text.includes('trato') || text.includes('abono') || text.includes('sena') || text.includes('seña')) {
-                return 'Perfecto crack 💼✅. Por seguridad, para metodos de pago y cierre de trato te doy la informacion por WhatsApp al 932598200.';
+            if (isPaymentQuery(text)) {
+                return 'Metodo de pago: escanea el QR. Pago a nombre de Kevin Nima y luego mandas el vaucher. Para mayor seguridad tuya y la de mi creador, dirigete directo al WhatsApp: https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20te%20mando%20mi%20vaucher%20de%20pago.';
             }
 
             if (alreadyInExam && !hasTimeInfo) {
@@ -696,6 +728,22 @@
             setAssistantTyping(true);
 
             setTimeout(async () => {
+                const normalizedQuestion = normalizeText(value);
+
+                if (isPaymentQuery(normalizedQuestion)) {
+                    setAssistantTyping(false);
+                    addAssistantPaymentMessage();
+                    assistantState.history.push({
+                        role: 'assistant',
+                        content: 'Metodo de pago con QR. Pago a nombre de Kevin Nima. Enviar vaucher por WhatsApp: https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20te%20mando%20mi%20vaucher%20de%20pago.'
+                    });
+
+                    if (assistantState.history.length > 12) {
+                        assistantState.history = assistantState.history.slice(-12);
+                    }
+                    return;
+                }
+
                 const reply = await getAssistantReply(value);
                 setAssistantTyping(false);
                 addAssistantMessage(reply, 'bot');
