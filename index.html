@@ -159,91 +159,43 @@
 
             <section class="areas" id="cursos">
                 <div class="section-heading">
-                    <h2>Nuestros cursos y áreas de apoyo</h2>
-                    <p>Haz clic en cualquier curso y te llevará directamente al WhatsApp para cotizar tu trabajo.</p>
+                    <h2>Cursos por carrera y ciclo (UTP)</h2>
+                    <p>Selecciona tu carrera y ciclo (1 al 10). Haz clic en un curso y te llevamos al WhatsApp para cotizarlo.</p>
                 </div>
 
-                <div class="category-grid">
-                    <article class="area-card">
-                        <h3>Ingeniería, Sistemas e Informática</h3>
-                        <div class="course-list">
-                            <button class="course-btn" data-course="Principios de Algoritmos (PSeInt)">Principios de Algoritmos (PSeInt)</button>
-                            <button class="course-btn" data-course="Taller de Programación (Java)">Taller de Programación (Java)</button>
-                            <button class="course-btn" data-course="Algoritmos y Estructuras de Datos (Java, C#)">Algoritmos y Estructuras de Datos (Java, C#)</button>
-                            <button class="course-btn" data-course="Programación Orientada a Objetos (POO)">Programación Orientada a Objetos (POO)</button>
-                            <button class="course-btn" data-course="Base de Datos (MySQL, SQL Server)">Base de Datos (MySQL, SQL Server)</button>
-                            <button class="course-btn" data-course="Desarrollo Web Integrado">Desarrollo Web Integrado</button>
-                            <button class="course-btn" data-course="Arquitectura de Computadoras">Arquitectura de Computadoras</button>
-                            <button class="course-btn" data-course="Curso Integrador I y II (Sistemas - Software)">Curso Integrador I y II</button>
-                            <button class="course-btn" data-course="Teoría General de Sistemas">Teoría General de Sistemas</button>
-                            <button class="course-btn" data-course="Informática para los Negocios">Informática para los Negocios</button>
-                            <button class="course-btn" data-course="Herramientas Informáticas (Excel y Excel Avanzado)">Herramientas Informáticas</button>
-                        </div>
-                    </article>
+                <article class="area-card">
+                    <div class="career-filters">
+                        <label for="career-select">
+                            Carrera
+                            <select id="career-select" aria-label="Seleccionar carrera"></select>
+                        </label>
+                        <label for="cycle-select">
+                            Ciclo
+                            <select id="cycle-select" aria-label="Seleccionar ciclo">
+                                <option value="1">1er ciclo</option>
+                                <option value="2">2do ciclo</option>
+                                <option value="3">3er ciclo</option>
+                                <option value="4">4to ciclo</option>
+                                <option value="5">5to ciclo</option>
+                                <option value="6">6to ciclo</option>
+                                <option value="7">7mo ciclo</option>
+                                <option value="8">8vo ciclo</option>
+                                <option value="9">9no ciclo</option>
+                                <option value="10">10mo ciclo</option>
+                            </select>
+                        </label>
+                    </div>
+                    <p class="career-note">Malla referencial por carrera y ciclo para cotizaciones academicas.</p>
+                    <h3 id="career-title">Selecciona una carrera para ver sus cursos</h3>
+                    <div class="course-list" id="dynamic-course-list"></div>
+                </article>
 
-                    <article class="area-card">
-                        <h3>Matemáticas, Física y Ciencias</h3>
-                        <div class="course-list">
-                            <button class="course-btn" data-course="Matemática para Ingenieros I, II y III / Cálculo 1 y 2">Matemática para Ingenieros I, II y III / Cálculo 1 y 2</button>
-                            <button class="course-btn" data-course="Nivelación de Matemática / Matemática Básica">Nivelación de Matemática / Matemática Básica</button>
-                            <button class="course-btn" data-course="Estadística Descriptiva y Probabilidades">Estadística Descriptiva y Probabilidades</button>
-                            <button class="course-btn" data-course="Estadística Inferencial (investigación, variables, intervalos)">Estadística Inferencial</button>
-                            <button class="course-btn" data-course="Cálculo Aplicado a la Física (CAF I, II y III) / Física Básica">Cálculo Aplicado a la Física / Física Básica</button>
-                            <button class="course-btn" data-course="Mecánica Clásica (proyectos finales)">Mecánica Clásica</button>
-                            <button class="course-btn" data-course="Química General y Orgánica">Química General y Orgánica</button>
-                            <button class="course-btn" data-course="Estática / Dinámica de Fluidos">Estática / Dinámica de Fluidos</button>
-                            <button class="course-btn" data-course="Máquinas Eléctricas Estáticas y Rotativas">Máquinas Eléctricas</button>
-                            <button class="course-btn" data-course="Transferencia de Calor y Masa">Transferencia de Calor y Masa</button>
-                        </div>
-                    </article>
-
-                    <article class="area-card">
-                        <h3>Dibujo, Diseño y Procesos Industriales</h3>
-                        <div class="course-list">
-                            <button class="course-btn" data-course="Dibujo para Ingeniería / Dibujo CAD / AutoCAD (2D y 3D)">Dibujo para Ingeniería / CAD / AutoCAD</button>
-                            <button class="course-btn" data-course="Procesos para Ingeniería / Procesos de Manufactura">Procesos de Manufactura</button>
-                            <button class="course-btn" data-course="Operaciones Unitarias y Procesos Industriales">Operaciones Unitarias</button>
-                            <button class="course-btn" data-course="Simulación de Procesos (Arena, Solver)">Simulación de Procesos</button>
-                            <button class="course-btn" data-course="Investigación Operativa (Método Gráfico, Lingo, Modi)">Investigación Operativa</button>
-                            <button class="course-btn" data-course="Planeamiento y Control de Operaciones">Planeamiento y Control de Operaciones</button>
-                            <button class="course-btn" data-course="Ergonomía y Estudio del Trabajo">Ergonomía y Estudio del Trabajo</button>
-                            <button class="course-btn" data-course="Diseño de Productos y Servicios">Diseño de Productos y Servicios</button>
-                            <button class="course-btn" data-course="Herramientas de la Calidad">Herramientas de la Calidad</button>
-                        </div>
-                    </article>
-
-                    <article class="area-card">
-                        <h3>Economía, Contabilidad y Finanzas</h3>
-                        <div class="course-list">
-                            <button class="course-btn" data-course="Economía Básica y General / Microeconomía y Macroeconomía">Economía Básica / Micro y Macro</button>
-                            <button class="course-btn" data-course="Fundamentos de Contabilidad y Finanzas">Fundamentos de Contabilidad y Finanzas</button>
-                            <button class="course-btn" data-course="Contabilidad General, Financiera, Gerencial y de Costos">Contabilidad General, Financiera y de Costos</button>
-                            <button class="course-btn" data-course="Auditoría Financiera u Operativa">Auditoría Financiera u Operativa</button>
-                            <button class="course-btn" data-course="Análisis de la Información y Estados Financieros (EEFF, Ratios)">Estados Financieros y Ratios</button>
-                            <button class="course-btn" data-course="Finanzas Aplicadas (TEA, financiamiento)">Finanzas Aplicadas</button>
-                            <button class="course-btn" data-course="Mercados Financieros (derivados, bonos, acciones)">Mercados Financieros</button>
-                            <button class="course-btn" data-course="Formulación y Evaluación Presupuestal">Formulación y Evaluación Presupuestal</button>
-                        </div>
-                    </article>
-
-                    <article class="area-card">
-                        <h3>Administración, Negocios y Humanidades</h3>
-                        <div class="course-list">
-                            <button class="course-btn" data-course="Administración y Organización de Empresas">Administración y Organización de Empresas</button>
-                            <button class="course-btn" data-course="Dirección y Planeamiento Estratégico">Dirección y Planeamiento Estratégico</button>
-                            <button class="course-btn" data-course="Gestión de Ventas / Marketing Digital">Gestión de Ventas / Marketing Digital</button>
-                            <button class="course-btn" data-course="Investigación de Mercados">Investigación de Mercados</button>
-                            <button class="course-btn" data-course="Derecho Comercial">Derecho Comercial</button>
-                            <button class="course-btn" data-course="Comprensión y Redacción de Textos I y II">Comprensión y Redacción de Textos</button>
-                            <button class="course-btn" data-course="Investigación Académica / Formación y Taller para la Investigación">Investigación Académica</button>
-                            <button class="course-btn" data-course="Nivelación y Redacción I y II">Nivelación y Redacción</button>
-                            <button class="course-btn" data-course="Ciudadanía y Reflexión Ética">Ciudadanía y Reflexión Ética</button>
-                            <button class="course-btn" data-course="Individuo y Medio Ambiente">Individuo y Medio Ambiente</button>
-                            <button class="course-btn" data-course="Introducción a la Vida Universitaria">Introducción a la Vida Universitaria</button>
-                            <button class="course-btn" data-course="Sistemas complejos u otros cursos más">Otros cursos y sistemas complejos</button>
-                        </div>
-                    </article>
-                </div>
+                <article class="custom-course-box">
+                    <p>No encuentras tu carrera o curso? No te preocupes, igual te hacemos a pedido. Solo danos tu consigna o indicaciones y rubrica, y hacemos tu trabajo.</p>
+                    <a class="primary-btn" href="https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20no%20encuentro%20mi%20carrera%20o%20curso%2C%20quiero%20cotizar%20a%20pedido." target="_blank" rel="noopener" data-track-whatsapp="custom-course-request" data-track-label="curso-a-pedido">
+                        Solicitar curso a pedido
+                    </a>
+                </article>
             </section>
 
             <section class="urgent-recovery" id="bajas-notas">
@@ -371,7 +323,10 @@
     </button>
 
     <script>
-        const courseButtons = document.querySelectorAll('.course-btn');
+        const careerSelect = document.getElementById('career-select');
+        const cycleSelect = document.getElementById('cycle-select');
+        const dynamicCourseList = document.getElementById('dynamic-course-list');
+        const careerTitle = document.getElementById('career-title');
         const buttonAnimations = ['anim-float', 'anim-bounce', 'anim-wiggle', 'anim-shimmer', 'anim-tilt', 'anim-pulse'];
         const analyticsConfig = window.ANALYTICS_CONFIG || {
             gaMeasurementId: '',
@@ -449,10 +404,226 @@
 
         initializeAnalytics();
 
-        courseButtons.forEach((button, index) => {
-            const animationClass = buttonAnimations[index % buttonAnimations.length];
-            button.classList.add(animationClass);
-        });
+        const careerPrograms = {
+            'Ingeniería de Sistemas e Informática': {
+                1: ['Principios de Algoritmos', 'Matemática Básica', 'Comunicación 1', 'Introducción a la Vida Universitaria'],
+                2: ['Taller de Programación', 'Matemática para Ingenieros 1', 'Física 1', 'Comunicación 2'],
+                3: ['Algoritmos y Estructuras de Datos', 'Programación Orientada a Objetos', 'Base de Datos 1', 'Arquitectura de Computadoras'],
+                4: ['Base de Datos 2', 'Desarrollo Web', 'Sistemas Operativos', 'Estadística para Ingeniería'],
+                5: ['Ingeniería de Software 1', 'Redes y Comunicaciones', 'Análisis y Diseño de Sistemas', 'Investigación Operativa'],
+                6: ['Ingeniería de Software 2', 'Aplicaciones Web Avanzadas', 'Seguridad Informática', 'Gestión de Proyectos TI'],
+                7: ['Inteligencia Artificial', 'Aplicaciones Móviles', 'Arquitectura de Software', 'Minería de Datos'],
+                8: ['Cloud Computing', 'DevOps', 'Sistemas Distribuidos', 'Taller de Investigación 1'],
+                9: ['Gobierno de TI', 'Auditoría de Sistemas', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
+                10: ['Gestión de Innovación TI', 'Ciberseguridad Avanzada', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+            },
+            'Ingeniería Industrial': {
+                1: ['Matemática Básica', 'Química General', 'Comunicación 1', 'Introducción a la Ingeniería'],
+                2: ['Matemática para Ingenieros 1', 'Física 1', 'Dibujo para Ingeniería', 'Comunicación 2'],
+                3: ['Matemática para Ingenieros 2', 'Física 2', 'Estadística Descriptiva', 'Procesos de Manufactura'],
+                4: ['Investigación Operativa 1', 'Costos Industriales', 'Ingeniería de Métodos', 'Logística 1'],
+                5: ['Investigación Operativa 2', 'Gestión de Operaciones', 'Planeamiento y Control de Producción', 'Seguridad y Salud Ocupacional'],
+                6: ['Simulación de Procesos', 'Logística 2', 'Ingeniería Económica', 'Gestión de Calidad'],
+                7: ['Gestión de la Cadena de Suministro', 'Automatización Industrial', 'Diseño de Planta', 'Gestión Ambiental'],
+                8: ['Lean Manufacturing', 'Gestión de Mantenimiento', 'Gestión de Proyectos', 'Taller de Investigación 1'],
+                9: ['Optimización de Sistemas', 'Sistemas Integrados de Gestión', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
+                10: ['Innovación en Operaciones', 'Gestión Estratégica Industrial', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+            },
+            'Ingeniería Civil': {
+                1: ['Matemática Básica', 'Dibujo para Ingeniería', 'Química General', 'Comunicación 1'],
+                2: ['Matemática para Ingenieros 1', 'Física 1', 'Geometría Descriptiva', 'Comunicación 2'],
+                3: ['Matemática para Ingenieros 2', 'Física 2', 'Topografía 1', 'Mecánica Vectorial'],
+                4: ['Resistencia de Materiales', 'Mecánica de Fluidos', 'Topografía 2', 'Geología'],
+                5: ['Análisis Estructural 1', 'Tecnología del Concreto', 'Hidráulica', 'Materiales de Construcción'],
+                6: ['Análisis Estructural 2', 'Diseño de Concreto Armado', 'Mecánica de Suelos', 'Hidrología'],
+                7: ['Diseño de Acero', 'Cimentaciones', 'Ingeniería de Transportes', 'Construcciones 1'],
+                8: ['Pavimentos', 'Ingeniería Sanitaria', 'Construcciones 2', 'Gestión de Proyectos de Construcción'],
+                9: ['Puentes', 'Obras Hidráulicas', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
+                10: ['Diseño Sismorresistente', 'Gerencia de Construcción', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+            },
+            'Ingeniería Mecánica': {
+                1: ['Matemática Básica', 'Química General', 'Comunicación 1', 'Dibujo Técnico'],
+                2: ['Matemática para Ingenieros 1', 'Física 1', 'Comunicación 2', 'CAD para Ingeniería'],
+                3: ['Matemática para Ingenieros 2', 'Física 2', 'Mecánica General', 'Materiales de Ingeniería'],
+                4: ['Termodinámica 1', 'Mecánica de Materiales', 'Procesos de Manufactura', 'Electricidad y Magnetismo'],
+                5: ['Termodinámica 2', 'Mecánica de Fluidos', 'Máquinas y Mecanismos', 'Metrología'],
+                6: ['Transferencia de Calor', 'Diseño de Elementos de Máquinas', 'Control de Procesos', 'Automatización Industrial'],
+                7: ['Máquinas Térmicas', 'Sistemas Hidráulicos y Neumáticos', 'Diseño Mecánico Asistido', 'Gestión de Mantenimiento'],
+                8: ['Energías Renovables', 'Mecatrónica Aplicada', 'Ingeniería Económica', 'Taller de Investigación 1'],
+                9: ['Diseño de Plantas Mecánicas', 'Gestión de Proyectos', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
+                10: ['Innovación en Ingeniería Mecánica', 'Gerencia de Operaciones', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+            },
+            'Ingeniería Electrónica': {
+                1: ['Matemática Básica', 'Física 1', 'Comunicación 1', 'Introducción a la Electrónica'],
+                2: ['Matemática para Ingenieros 1', 'Física 2', 'Comunicación 2', 'Programación para Ingeniería'],
+                3: ['Circuitos Eléctricos 1', 'Electrónica Analógica 1', 'Álgebra Lineal', 'Instrumentación'],
+                4: ['Circuitos Eléctricos 2', 'Electrónica Analógica 2', 'Señales y Sistemas', 'Probabilidad y Estadística'],
+                5: ['Electrónica Digital', 'Microcontroladores', 'Control Automático 1', 'Telecomunicaciones 1'],
+                6: ['Sistemas Embebidos', 'Control Automático 2', 'Telecomunicaciones 2', 'Procesamiento de Señales'],
+                7: ['Diseño de PCB', 'Robótica', 'Redes Industriales', 'Electrónica de Potencia'],
+                8: ['Internet de las Cosas', 'Automatización Avanzada', 'Gestión de Proyectos', 'Taller de Investigación 1'],
+                9: ['Sistemas de Comunicación Digital', 'Ingeniería Biomédica Aplicada', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
+                10: ['Innovación Electrónica', 'Gerencia de Tecnología', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+            },
+            'Ingeniería Empresarial': {
+                1: ['Matemática Básica', 'Fundamentos de Gestión', 'Comunicación 1', 'Introducción a la Vida Universitaria'],
+                2: ['Estadística Básica', 'Contabilidad General', 'Comunicación 2', 'Economía General'],
+                3: ['Matemática Financiera', 'Costos y Presupuestos', 'Microeconomía', 'Herramientas Informáticas'],
+                4: ['Macroeconomía', 'Investigación de Mercados', 'Gestión de Procesos', 'Derecho Empresarial'],
+                5: ['Gestión de Operaciones', 'Finanzas Corporativas 1', 'Marketing Estratégico', 'Gestión del Talento Humano'],
+                6: ['Finanzas Corporativas 2', 'Planeamiento Estratégico', 'Business Analytics', 'Cadena de Suministro'],
+                7: ['Gestión Comercial', 'Transformación Digital', 'Gestión de Proyectos', 'Innovación Empresarial'],
+                8: ['Modelos de Negocio', 'Emprendimiento', 'Inteligencia de Negocios', 'Taller de Investigación 1'],
+                9: ['Gobierno Corporativo', 'Consultoría Empresarial', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
+                10: ['Dirección Estratégica', 'Gerencia General', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+            },
+            'Arquitectura': {
+                1: ['Dibujo Arquitectónico 1', 'Geometría', 'Comunicación 1', 'Historia del Arte'],
+                2: ['Dibujo Arquitectónico 2', 'Expresión Gráfica Digital', 'Comunicación 2', 'Historia de la Arquitectura 1'],
+                3: ['Taller de Diseño Arquitectónico 1', 'Construcción 1', 'Topografía', 'Historia de la Arquitectura 2'],
+                4: ['Taller de Diseño Arquitectónico 2', 'Construcción 2', 'Estructuras 1', 'Instalaciones Básicas'],
+                5: ['Taller de Diseño Arquitectónico 3', 'Estructuras 2', 'Urbanismo 1', 'Materiales de Construcción'],
+                6: ['Taller de Diseño Arquitectónico 4', 'Urbanismo 2', 'Instalaciones Sanitarias', 'Instalaciones Eléctricas'],
+                7: ['Taller de Diseño Arquitectónico 5', 'Acondicionamiento Ambiental', 'Paisajismo', 'Gestión de Obra'],
+                8: ['Taller de Diseño Arquitectónico 6', 'Restauración Arquitectónica', 'BIM para Arquitectura', 'Taller de Investigación 1'],
+                9: ['Planeamiento Urbano', 'Gestión Inmobiliaria', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
+                10: ['Proyecto de Fin de Carrera', 'Gerencia de Proyectos Arquitectónicos', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+            },
+            'Administración de Empresas': {
+                1: ['Fundamentos de Administración', 'Comunicación 1', 'Matemática Básica', 'Introducción a la Vida Universitaria'],
+                2: ['Contabilidad General', 'Comunicación 2', 'Estadística Básica', 'Economía General'],
+                3: ['Costos y Presupuestos', 'Comportamiento Organizacional', 'Microeconomía', 'Matemática Financiera'],
+                4: ['Marketing', 'Derecho Empresarial', 'Macroeconomía', 'Gestión por Procesos'],
+                5: ['Gestión del Talento Humano', 'Finanzas 1', 'Investigación de Mercados', 'Operaciones 1'],
+                6: ['Finanzas 2', 'Planeamiento Estratégico', 'Operaciones 2', 'Gestión Comercial'],
+                7: ['Dirección de Empresas', 'Negociación', 'Gestión de Proyectos', 'Business Analytics'],
+                8: ['Emprendimiento', 'Innovación Empresarial', 'Gestión Pública y Privada', 'Taller de Investigación 1'],
+                9: ['Consultoría Empresarial', 'Gobierno Corporativo', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
+                10: ['Gerencia General', 'Estrategia Competitiva', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+            },
+            'Administración y Marketing': {
+                1: ['Fundamentos de Administración', 'Comunicación 1', 'Matemática Básica', 'Introducción a la Vida Universitaria'],
+                2: ['Comunicación 2', 'Estadística Básica', 'Economía General', 'Contabilidad General'],
+                3: ['Comportamiento del Consumidor', 'Marketing 1', 'Diseño de Contenidos', 'Investigación de Mercados 1'],
+                4: ['Marketing 2', 'Branding', 'Marketing Digital 1', 'Analítica Web'],
+                5: ['Trade Marketing', 'E-commerce', 'Publicidad y Medios', 'Estrategias Comerciales'],
+                6: ['Marketing Digital 2', 'CRM y Fidelización', 'Inteligencia Comercial', 'Gestión de Ventas'],
+                7: ['Plan de Marketing', 'Neuromarketing', 'Dirección Comercial', 'Gestión de Proyectos'],
+                8: ['Innovación de Productos', 'Marketing Internacional', 'Métricas de Marketing', 'Taller de Investigación 1'],
+                9: ['Consultoría de Marketing', 'Gerencia de Marca', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
+                10: ['Dirección Estratégica de Marketing', 'Emprendimiento Comercial', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+            },
+            'Contabilidad': {
+                1: ['Contabilidad Básica', 'Comunicación 1', 'Matemática Básica', 'Introducción a la Vida Universitaria'],
+                2: ['Contabilidad Financiera 1', 'Comunicación 2', 'Economía General', 'Estadística Básica'],
+                3: ['Contabilidad Financiera 2', 'Matemática Financiera', 'Derecho Empresarial', 'Microeconomía'],
+                4: ['Contabilidad de Costos 1', 'Tributación 1', 'Macroeconomía', 'Sistemas Contables'],
+                5: ['Contabilidad de Costos 2', 'Tributación 2', 'Finanzas 1', 'Auditoría 1'],
+                6: ['NIIF 1', 'Finanzas 2', 'Auditoría 2', 'Gestión de Presupuestos'],
+                7: ['NIIF 2', 'Tributación Avanzada', 'Análisis de Estados Financieros', 'Control Interno'],
+                8: ['Planeamiento Tributario', 'Peritaje Contable', 'Contabilidad Gerencial', 'Taller de Investigación 1'],
+                9: ['Auditoría Integral', 'Consultoría Contable', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
+                10: ['Dirección Financiera', 'Gerencia Contable', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+            },
+            'Derecho': {
+                1: ['Introducción al Derecho', 'Comunicación 1', 'Realidad Nacional', 'Metodología del Estudio'],
+                2: ['Comunicación 2', 'Historia del Derecho', 'Teoría del Estado', 'Derecho Constitucional 1'],
+                3: ['Derecho Constitucional 2', 'Derecho Civil Personas', 'Derecho Penal 1', 'Argumentación Jurídica'],
+                4: ['Derecho Civil Bienes', 'Derecho Penal 2', 'Derecho Administrativo 1', 'Derecho Procesal 1'],
+                5: ['Derecho Civil Obligaciones', 'Derecho Administrativo 2', 'Derecho Procesal 2', 'Derecho Laboral 1'],
+                6: ['Derecho Civil Contratos', 'Derecho Laboral 2', 'Derecho Tributario 1', 'Derecho Comercial 1'],
+                7: ['Derecho de Familia', 'Derecho Tributario 2', 'Derecho Comercial 2', 'Litigación Oral'],
+                8: ['Derecho Internacional', 'Derecho Ambiental', 'Clínica Jurídica 1', 'Taller de Investigación 1'],
+                9: ['Arbitraje y Conciliación', 'Ética Profesional', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
+                10: ['Clínica Jurídica 2', 'Práctica Preprofesional', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+            },
+            'Psicología': {
+                1: ['Introducción a la Psicología', 'Comunicación 1', 'Biología Humana', 'Desarrollo Personal'],
+                2: ['Comunicación 2', 'Neurociencia Básica', 'Psicología del Desarrollo 1', 'Estadística Básica'],
+                3: ['Psicología del Desarrollo 2', 'Procesos Psicológicos', 'Psicometría 1', 'Metodología de la Investigación'],
+                4: ['Psicología Social', 'Psicopatología 1', 'Psicometría 2', 'Entrevista Psicológica'],
+                5: ['Psicopatología 2', 'Evaluación Psicológica', 'Psicología Educativa', 'Psicología Organizacional 1'],
+                6: ['Psicología Clínica 1', 'Psicología Organizacional 2', 'Terapia Cognitivo Conductual', 'Psicología Comunitaria'],
+                7: ['Psicología Clínica 2', 'Consejería Psicológica', 'Intervención en Crisis', 'Investigación en Psicología'],
+                8: ['Neuropsicología', 'Psicología Forense', 'Práctica Supervisada 1', 'Taller de Investigación 1'],
+                9: ['Diseño de Programas de Intervención', 'Ética Profesional', 'Seminario de Tesis 1', 'Práctica Supervisada 2'],
+                10: ['Gestión de Servicios Psicológicos', 'Supervisión Clínica', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+            },
+            'Economía y Negocios Internacionales': {
+                1: ['Introducción a la Economía', 'Comunicación 1', 'Matemática Básica', 'Introducción a la Vida Universitaria'],
+                2: ['Microeconomía 1', 'Comunicación 2', 'Estadística Básica', 'Contabilidad General'],
+                3: ['Macroeconomía 1', 'Microeconomía 2', 'Matemática Financiera', 'Comercio Internacional 1'],
+                4: ['Macroeconomía 2', 'Econometría 1', 'Comercio Internacional 2', 'Finanzas 1'],
+                5: ['Economía Internacional', 'Econometría 2', 'Finanzas 2', 'Logística Internacional'],
+                6: ['Política Económica', 'Inteligencia de Mercados', 'Negociación Internacional', 'Gestión Aduanera'],
+                7: ['Integración Económica', 'Gestión de Riesgos', 'Mercados Financieros', 'Gestión de Proyectos'],
+                8: ['Inversión Internacional', 'Planeamiento Estratégico', 'Business Analytics', 'Taller de Investigación 1'],
+                9: ['Consultoría Económica', 'Dirección de Negocios Internacionales', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
+                10: ['Estrategia Global', 'Gerencia de Comercio Exterior', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+            },
+            'Administración de Negocios Internacionales': {
+                1: ['Fundamentos de Administración', 'Comunicación 1', 'Matemática Básica', 'Introducción a la Vida Universitaria'],
+                2: ['Comunicación 2', 'Estadística Básica', 'Economía General', 'Contabilidad General'],
+                3: ['Comercio Internacional 1', 'Matemática Financiera', 'Logística 1', 'Microeconomía'],
+                4: ['Comercio Internacional 2', 'Gestión Aduanera', 'Logística 2', 'Macroeconomía'],
+                5: ['Contratos Internacionales', 'Finanzas Internacionales', 'Marketing Internacional', 'Supply Chain Global'],
+                6: ['Incoterms y Medios de Pago', 'Inteligencia Comercial', 'Negociación Internacional', 'Gestión de Riesgos'],
+                7: ['Planeamiento de Exportaciones', 'Gestión de Importaciones', 'E-commerce Internacional', 'Gestión de Proyectos'],
+                8: ['Integración Económica', 'Dirección Comercial Internacional', 'Analítica de Negocios', 'Taller de Investigación 1'],
+                9: ['Consultoría en Comercio Exterior', 'Dirección Estratégica', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
+                10: ['Gerencia de Negocios Globales', 'Innovación en Comercio Exterior', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+            }
+        };
+
+        function renderCareerCourses() {
+            if (!careerSelect || !cycleSelect || !dynamicCourseList || !careerTitle) {
+                return;
+            }
+
+            const selectedCareer = careerSelect.value;
+            const selectedCycle = cycleSelect.value;
+            const courses = careerPrograms[selectedCareer]?.[selectedCycle] || [];
+
+            careerTitle.textContent = `${selectedCareer} - ${selectedCycle} ciclo`;
+            dynamicCourseList.innerHTML = '';
+
+            if (!courses.length) {
+                const emptyMessage = document.createElement('p');
+                emptyMessage.className = 'career-note';
+                emptyMessage.textContent = 'No hay cursos cargados para este ciclo. Escríbenos por WhatsApp y te lo cotizamos a pedido.';
+                dynamicCourseList.appendChild(emptyMessage);
+                return;
+            }
+
+            courses.forEach((course, index) => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'course-btn';
+                button.textContent = course;
+                button.dataset.course = `${selectedCareer} | ${selectedCycle} ciclo | ${course}`;
+                button.classList.add(buttonAnimations[index % buttonAnimations.length]);
+                dynamicCourseList.appendChild(button);
+            });
+        }
+
+        function initializeCareerExplorer() {
+            if (!careerSelect || !cycleSelect || !dynamicCourseList || !careerTitle) {
+                return;
+            }
+
+            Object.keys(careerPrograms).forEach((career) => {
+                const option = document.createElement('option');
+                option.value = career;
+                option.textContent = career;
+                careerSelect.appendChild(option);
+            });
+
+            careerSelect.addEventListener('change', renderCareerCourses);
+            cycleSelect.addEventListener('change', renderCareerCourses);
+            renderCareerCourses();
+        }
+
+        initializeCareerExplorer();
 
         function playPerrySound() {
             const AudioContextCtor = window.AudioContext || window.webkitAudioContext;
@@ -491,19 +662,22 @@
             });
         }
 
-        courseButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-                playPerrySound();
-                button.classList.remove('is-pressed');
-                void button.offsetWidth;
-                button.classList.add('is-pressed');
+        document.addEventListener('click', (event) => {
+            const button = event.target.closest('.course-btn');
+            if (!button) {
+                return;
+            }
 
-                const message = encodeURIComponent(`Hola Agente Perry, quiero cotizar el curso: ${button.dataset.course}`);
-                trackWhatsAppClick('course-button', button.dataset.course);
-                window.open(`https://wa.me/51932598200?text=${message}`, '_blank', 'noopener');
+            playPerrySound();
+            button.classList.remove('is-pressed');
+            void button.offsetWidth;
+            button.classList.add('is-pressed');
 
-                setTimeout(() => button.classList.remove('is-pressed'), 420);
-            });
+            const message = encodeURIComponent(`Hola Agente Perry, quiero cotizar el curso: ${button.dataset.course}`);
+            trackWhatsAppClick('course-button', button.dataset.course);
+            window.open(`https://wa.me/51932598200?text=${message}`, '_blank', 'noopener');
+
+            setTimeout(() => button.classList.remove('is-pressed'), 420);
         });
 
         const trackedWhatsAppLinks = document.querySelectorAll('[data-track-whatsapp]');
