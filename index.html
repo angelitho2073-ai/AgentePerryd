@@ -443,12 +443,15 @@
                 <button type="button" class="assistant-mode-btn is-active" data-mode="rapida">Rápida</button>
                 <button type="button" class="assistant-mode-btn" data-mode="detallada">Detallada</button>
                 <button type="button" class="assistant-mode-btn" data-mode="profesional">Profesional</button>
+                <button type="button" class="assistant-mode-btn" id="assistant-voice-toggle" aria-pressed="true">Voz: ON</button>
             </div>
 
             <form class="assistant-form" id="assistant-form">
                 <input id="assistant-input" type="text" placeholder="Escribe tu duda aquí..." autocomplete="off" />
+                <button type="button" class="assistant-mic-btn" id="assistant-mic" aria-label="Hablar con el asistente" title="Hablar con el asistente">🎤</button>
                 <button type="submit">Enviar</button>
             </form>
+            <p class="assistant-voice-hint" id="assistant-voice-hint" aria-live="polite"></p>
         </div>
     </div>
 
@@ -939,6 +942,9 @@
         const assistantMessages = document.getElementById('assistant-messages');
         const assistantModeBar = document.getElementById('assistant-mode-bar');
         const assistantModeButtons = document.querySelectorAll('.assistant-mode-btn');
+        const assistantVoiceToggle = document.getElementById('assistant-voice-toggle');
+        const assistantMicButton = document.getElementById('assistant-mic');
+        const assistantVoiceHint = document.getElementById('assistant-voice-hint');
         const assistantClose = document.getElementById('assistant-close');
         const assistantRestore = document.getElementById('assistant-restore');
         const quickChips = document.querySelectorAll('.quick-chip');
@@ -949,6 +955,14 @@
             urgency: false,
             responseMode: 'rapida',
             history: []
+        };
+        const SpeechRecognitionCtor = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const voiceState = {
+            canListen: Boolean(SpeechRecognitionCtor),
+            listening: false,
+            recognition: null,
+            canSpeak: 'speechSynthesis' in window,
+            speakEnabled: true
         };
         const assistantPresentationMessage = '¡Hola! Soy el asistente virtual de Academia Agente Perry: Operación Excelencia. Puedo responder preguntas de cualquier tema y también apoyarte en asesorías académicas, exámenes y admisión. Si quieres atención directa, te atendemos por WhatsApp al 932598200.';
         const assistantPositionKey = 'assistant_widget_position';
@@ -961,6 +975,10 @@
             wrapper.textContent = text;
             assistantMessages.appendChild(wrapper);
             assistantMessages.scrollTop = assistantMessages.scrollHeight;
+
+            if (type === 'bot') {
+                speakAssistantReply(text);
+            }
         }
 
         function addAssistantPaymentMessage() {
@@ -989,6 +1007,97 @@
             wrapper.appendChild(link);
             assistantMessages.appendChild(wrapper);
             assistantMessages.scrollTop = assistantMessages.scrollHeight;
+
+            speakAssistantReply(text.textContent);
+        }
+
+        function setVoiceHint(message) {
+            if (assistantVoiceHint) {
+                assistantVoiceHint.textContent = message;
+            }
+        }
+
+        function speakAssistantReply(text) {
+            if (!voiceState.canSpeak || !voiceState.speakEnabled || !text) {
+                return;
+            }
+
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'es-PE';
+            utterance.rate = 1;
+            utterance.pitch = 1;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function initializeVoiceRecognition() {
+            if (!voiceState.canListen || !assistantMicButton) {
+                if (assistantMicButton) {
+                    assistantMicButton.disabled = true;
+                    assistantMicButton.title = 'Tu navegador no soporta entrada por voz';
+                }
+                setVoiceHint('Tu navegador no soporta dictado por voz.');
+                return;
+            }
+
+            const recognition = new SpeechRecognitionCtor();
+            recognition.lang = 'es-PE';
+            recognition.interimResults = true;
+            recognition.continuous = false;
+            voiceState.recognition = recognition;
+
+            recognition.addEventListener('start', () => {
+                voiceState.listening = true;
+                assistantMicButton.classList.add('is-listening');
+                assistantMicButton.setAttribute('aria-pressed', 'true');
+                setVoiceHint('Te escucho... habla ahora.');
+            });
+
+            recognition.addEventListener('result', (event) => {
+                let transcript = '';
+                for (let i = event.resultIndex; i < event.results.length; i += 1) {
+                    transcript += event.results[i][0].transcript;
+                }
+
+                assistantInput.value = transcript.trim();
+
+                const last = event.results[event.results.length - 1];
+                if (last && last.isFinal) {
+                    const finalText = transcript.trim();
+                    if (finalText) {
+                        trackEvent('assistant_voice_input', { length: finalText.length });
+                        sendAssistantQuery(finalText);
+                        assistantInput.value = '';
+                    }
+                }
+            });
+
+            recognition.addEventListener('error', () => {
+                setVoiceHint('No pude escucharte bien. Intenta nuevamente.');
+            });
+
+            recognition.addEventListener('end', () => {
+                voiceState.listening = false;
+                assistantMicButton.classList.remove('is-listening');
+                assistantMicButton.setAttribute('aria-pressed', 'false');
+            });
+
+            assistantMicButton.addEventListener('click', () => {
+                if (!voiceState.recognition) {
+                    return;
+                }
+
+                if (voiceState.listening) {
+                    voiceState.recognition.stop();
+                    setVoiceHint('Micrófono en pausa.');
+                    return;
+                }
+
+                setVoiceHint('Activando micrófono...');
+                voiceState.recognition.start();
+            });
+
+            setVoiceHint('Presiona 🎤 para hablar con el asistente.');
         }
 
         function randomChoice(options) {
@@ -1397,7 +1506,7 @@
         if (assistantModeBar && assistantModeButtons.length) {
             assistantModeBar.addEventListener('click', (event) => {
                 const button = event.target.closest('.assistant-mode-btn');
-                if (!button) {
+                if (!button || button === assistantVoiceToggle) {
                     return;
                 }
 
@@ -1407,6 +1516,19 @@
                 });
 
                 trackEvent('assistant_mode_change', { mode: assistantState.responseMode });
+            });
+        }
+
+        if (assistantVoiceToggle) {
+            assistantVoiceToggle.addEventListener('click', () => {
+                voiceState.speakEnabled = !voiceState.speakEnabled;
+                assistantVoiceToggle.textContent = voiceState.speakEnabled ? 'Voz: ON' : 'Voz: OFF';
+                assistantVoiceToggle.setAttribute('aria-pressed', String(voiceState.speakEnabled));
+                assistantVoiceToggle.classList.toggle('is-active', voiceState.speakEnabled);
+                if (!voiceState.speakEnabled && voiceState.canSpeak) {
+                    window.speechSynthesis.cancel();
+                }
+                trackEvent('assistant_voice_output_toggle', { enabled: voiceState.speakEnabled });
             });
         }
 
@@ -1435,6 +1557,7 @@
         enableAssistantDrag();
         setupRevealAnimation();
         setupPortalNav();
+        initializeVoiceRecognition();
 
         const welcomeOverlay = document.getElementById('welcome-overlay');
         if (welcomeOverlay) {
