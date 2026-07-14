@@ -167,6 +167,68 @@ body::after {
     padding: 24px;
 }
 
+.portal-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(248, 113, 113, 0.35);
+    background: linear-gradient(135deg, rgba(69, 10, 10, 0.88), rgba(127, 29, 29, 0.84));
+}
+
+.portal-topbar p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #fee2e2;
+    font-weight: 700;
+}
+
+.portal-topbar a {
+    text-decoration: none;
+    font-weight: 800;
+    color: #0f172a;
+    background: #fecaca;
+    border-radius: 999px;
+    padding: 8px 12px;
+    white-space: nowrap;
+}
+
+.portal-nav {
+    position: sticky;
+    top: 10px;
+    z-index: 35;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding: 10px;
+    border-radius: 14px;
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    background: rgba(9, 17, 31, 0.82);
+    backdrop-filter: blur(8px);
+}
+
+.portal-nav a {
+    text-decoration: none;
+    color: #dbe7fb;
+    padding: 8px 11px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    font-size: 0.88rem;
+    font-weight: 700;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.portal-nav a:hover,
+.portal-nav a.is-active {
+    background: rgba(220, 38, 38, 0.18);
+    border-color: rgba(248, 113, 113, 0.6);
+    color: #fee2e2;
+}
+
 .hero {
     position: relative;
     overflow: hidden;
@@ -411,6 +473,43 @@ h1 {
     margin-bottom: 24px;
 }
 
+.admission-section {
+    margin: 8px 0 24px;
+}
+
+.admission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.admission-card {
+    padding: 18px;
+    border-radius: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    background: linear-gradient(155deg, rgba(30, 18, 18, 0.88), rgba(62, 24, 24, 0.75));
+}
+
+.admission-card span {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #fca5a5;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.admission-card h3 {
+    margin: 0 0 8px;
+}
+
+.admission-card p {
+    margin: 0;
+    color: #e2e8f0;
+    line-height: 1.55;
+}
+
 .value-card {
     border-radius: 18px;
     padding: 18px;
@@ -457,6 +556,35 @@ h1 {
     margin: 0;
     color: #dbe7fb;
     line-height: 1.5;
+}
+
+.campus-section {
+    margin: 4px 0 24px;
+}
+
+.campus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.campus-card {
+    padding: 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    background: linear-gradient(150deg, rgba(16, 26, 44, 0.88), rgba(26, 42, 70, 0.84));
+}
+
+.campus-card h3 {
+    margin: 0 0 8px;
+    color: #bfdbfe;
+    font-size: 1rem;
+}
+
+.campus-card p {
+    margin: 0;
+    color: #d8e6fa;
+    line-height: 1.52;
 }
 
 .process-grid {
@@ -798,6 +926,40 @@ h1 {
     margin-top: 16px;
     color: #ffffff;
     font-size: 1.1rem;
+}
+
+.portal-footer {
+    margin-top: 18px;
+    padding: 22px;
+    border-radius: 20px;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    background: linear-gradient(145deg, rgba(9, 17, 31, 0.94), rgba(18, 31, 54, 0.9));
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 16px;
+}
+
+.portal-footer h3,
+.portal-footer h4 {
+    margin: 0 0 8px;
+}
+
+.portal-footer p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.portal-footer ul {
+    margin: 0;
+    padding-left: 18px;
+    display: grid;
+    gap: 6px;
+}
+
+.portal-footer a {
+    color: #fca5a5;
+    text-decoration: none;
+    font-weight: 700;
 }
 
 .urgent-recovery {
@@ -1295,8 +1457,19 @@ h1 {
 
     .proof-strip,
     .value-grid,
-    .process-grid {
+    .process-grid,
+    .admission-grid,
+    .campus-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .portal-footer {
+        grid-template-columns: 1fr;
+    }
+
+    .portal-topbar {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .guarantee-banner {
@@ -1330,8 +1503,14 @@ h1 {
 
     .proof-strip,
     .value-grid,
-    .process-grid {
+    .process-grid,
+    .admission-grid,
+    .campus-grid {
         grid-template-columns: 1fr;
+    }
+
+    .portal-nav {
+        top: 6px;
     }
 
     .career-filters {
