@@ -13,6 +13,7 @@ export default async function handler(req, res) {
         const history = Array.isArray(body.history) ? body.history : [];
         const context = body.context || {};
         const responseMode = context.responseMode || 'rapida';
+        const asksSensitiveData = /datos? personales?|dni|correo personal|email personal|contrasena|contrasenia|password|api key|token|cuenta bancaria|tarjeta|cvv|direccion exacta|ubicacion exacta|numero privado/i.test(message);
 
         if (!message) {
             res.status(400).json({ error: 'message is required' });
@@ -20,6 +21,14 @@ export default async function handler(req, res) {
         }
 
         if (!openAiApiKey) {
+            if (asksSensitiveData) {
+                res.status(200).json({
+                    reply: 'No puedo compartir datos privados o sensibles. Te ayudo con cualquier otra consulta general o académica.',
+                    source: 'fallback-api'
+                });
+                return;
+            }
+
             const base = [
                 'Excelente, te puedo ayudar con eso.',
                 `Tema detectado: ${context.topic || 'general'}.`,
@@ -60,6 +69,7 @@ export default async function handler(req, res) {
             'Si el modo es profesional: responde formal, preciso y estructurado.',
             'Puedes usar humor ligero y emojis moderados para sonar mas humano, sin perder profesionalismo.',
             'Debes poder responder preguntas de cualquier tema (academico o general) con utilidad real.',
+            'Nunca reveles ni inventes datos personales, credenciales, informacion privada o sensible.',
             'Si la consulta es academica o de admision, prioriza enfoque de asesoria y orientacion accionable.',
             'Responde breve: maximo 5 lineas y sin parrafos largos.',
             'Si el usuario pide cotizacion academica, solicita datos clave: curso, tipo de trabajo, rubrica y fecha limite.',

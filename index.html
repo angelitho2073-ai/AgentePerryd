@@ -962,7 +962,9 @@
             listening: false,
             recognition: null,
             canSpeak: 'speechSynthesis' in window,
-            speakEnabled: true
+            speakEnabled: true,
+            permissionChecked: false,
+            pendingFinalText: ''
         };
         const assistantPresentationMessage = '¡Hola! Soy el asistente virtual de Academia Agente Perry: Operación Excelencia. Puedo responder preguntas de cualquier tema y también apoyarte en asesorías académicas, exámenes y admisión. Si quieres atención directa, te atendemos por WhatsApp al 932598200.';
         const assistantPositionKey = 'assistant_widget_position';
@@ -1041,9 +1043,10 @@
             }
 
             const recognition = new SpeechRecognitionCtor();
-            recognition.lang = 'es-PE';
+            recognition.lang = 'es-ES';
             recognition.interimResults = true;
             recognition.continuous = false;
+            recognition.maxAlternatives = 1;
             voiceState.recognition = recognition;
 
             recognition.addEventListener('start', () => {
@@ -1065,6 +1068,7 @@
                 if (last && last.isFinal) {
                     const finalText = transcript.trim();
                     if (finalText) {
+                        voiceState.pendingFinalText = finalText;
                         trackEvent('assistant_voice_input', { length: finalText.length });
                         sendAssistantQuery(finalText);
                         assistantInput.value = '';
@@ -1072,7 +1076,29 @@
                 }
             });
 
-            recognition.addEventListener('error', () => {
+            recognition.addEventListener('error', (event) => {
+                const code = event.error || 'unknown';
+
+                if (code === 'not-allowed' || code === 'service-not-allowed') {
+                    setVoiceHint('Permiso de micrófono denegado. Actívalo en el candado del navegador y recarga la página.');
+                    return;
+                }
+
+                if (code === 'audio-capture') {
+                    setVoiceHint('No se detecta micrófono disponible en tu equipo.');
+                    return;
+                }
+
+                if (code === 'network') {
+                    setVoiceHint('Error de red del reconocimiento de voz. Verifica internet e intenta nuevamente.');
+                    return;
+                }
+
+                if (code === 'no-speech') {
+                    setVoiceHint('No detecté voz. Habla más cerca del micrófono e intenta de nuevo.');
+                    return;
+                }
+
                 setVoiceHint('No pude escucharte bien. Intenta nuevamente.');
             });
 
@@ -1080,9 +1106,49 @@
                 voiceState.listening = false;
                 assistantMicButton.classList.remove('is-listening');
                 assistantMicButton.setAttribute('aria-pressed', 'false');
+
+                if (voiceState.pendingFinalText) {
+                    voiceState.pendingFinalText = '';
+                    setVoiceHint('Audio enviado correctamente.');
+                    return;
+                }
+
+                const fallbackText = assistantInput.value.trim();
+                if (fallbackText) {
+                    trackEvent('assistant_voice_input_fallback', { length: fallbackText.length });
+                    sendAssistantQuery(fallbackText);
+                    assistantInput.value = '';
+                    setVoiceHint('Audio enviado correctamente.');
+                }
             });
 
-            assistantMicButton.addEventListener('click', () => {
+            async function ensureMicrophonePermission() {
+                if (voiceState.permissionChecked) {
+                    return true;
+                }
+
+                if (!window.isSecureContext) {
+                    setVoiceHint('Para usar audio abre la web en HTTPS (no en archivo local).');
+                    return false;
+                }
+
+                if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                    setVoiceHint('Tu navegador no permite solicitar permisos de micrófono.');
+                    return false;
+                }
+
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    stream.getTracks().forEach((track) => track.stop());
+                    voiceState.permissionChecked = true;
+                    return true;
+                } catch (error) {
+                    setVoiceHint('No hay permiso de micrófono. Habilítalo en el navegador y vuelve a intentar.');
+                    return false;
+                }
+            }
+
+            assistantMicButton.addEventListener('click', async () => {
                 if (!voiceState.recognition) {
                     return;
                 }
@@ -1093,6 +1159,12 @@
                     return;
                 }
 
+                const canStart = await ensureMicrophonePermission();
+                if (!canStart) {
+                    return;
+                }
+
+                voiceState.pendingFinalText = '';
                 setVoiceHint('Activando micrófono...');
                 voiceState.recognition.start();
             });
@@ -1121,6 +1193,10 @@
 
         function isPaymentQuery(text) {
             return /pago|metodo de pago|metodo|abono|yape|plin|vaucher|voucher|transferencia|deposito|dep[oó]sito/.test(text);
+        }
+
+        function isSensitiveDataQuery(text) {
+            return /datos? personales?|dni|correo personal|email personal|contrasena|contrasenia|password|api key|token|cuenta bancaria|tarjeta|cvv|direccion exacta|ubicacion exacta|numero privado/.test(text);
         }
 
         function setAssistantTyping(isTyping) {
@@ -1177,6 +1253,14 @@
 
             if (isPaymentQuery(text)) {
                 return 'Metodo de pago: escanea el QR. Pago a nombre de Kevin Nima y luego mandas el vaucher. Para mayor seguridad tuya y la de mi creador, dirigete directo al WhatsApp: https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20te%20mando%20mi%20vaucher%20de%20pago.';
+            }
+
+            if (isSensitiveDataQuery(text)) {
+                return buildModeReply({
+                    rapida: 'No puedo compartir datos privados o sensibles. Puedo ayudarte con cualquier otra consulta.',
+                    detallada: 'No puedo revelar datos privados o sensibles. Si deseas, te ayudo con información general, orientación o solución del tema que necesites.',
+                    profesional: 'No es posible compartir datos personales o sensibles. Con gusto puedo ayudarte con cualquier consulta general o académica dentro de un marco seguro.'
+                });
             }
 
             if (alreadyInExam && !hasTimeInfo) {
