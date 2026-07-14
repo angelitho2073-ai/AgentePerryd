@@ -36,7 +36,7 @@
     <div class="welcome-overlay" id="welcome-overlay" aria-live="polite">
         <div class="welcome-card">
             <p class="welcome-kicker">Bienvenido</p>
-            <h2>UTPINO, UN GUSTO TENERTE CON NOSOTROS <span class="welcome-wave" aria-hidden="true">👋</span></h2>
+            <h2>Hola universitario UTPINO, un gusto tenerte con nosotros, un placer poder ayudarte <span class="welcome-wave" aria-hidden="true">👋</span></h2>
         </div>
     </div>
 
@@ -219,20 +219,20 @@
                 <div class="testimonial-grid">
                     <article class="testimonial-card">
                         <div class="stars">★★★★★</div>
-                        <p>"Gracias a la asesoría, entregué mis tareas y avances a tiempo y mejoré muchísimo mi rendimiento en programación."</p>
-                        <span>— Estudiante de Sistemas</span>
+                        <p>"Me ayudaron a ordenar todo mi curso desde cero. Entregué a tiempo, bien sustentado y con excelente presentación."</p>
+                        <span>— Diego Villanueva Rojas</span>
                     </article>
 
                     <article class="testimonial-card">
                         <div class="stars">★★★★★</div>
-                        <p>"Me ayudaron con mi portafolio y con la preparación de exámenes; el apoyo fue claro, rápido y muy efectivo."</p>
-                        <span>— Estudiante de Ingeniería</span>
+                        <p>"La asesoría fue rápida y clara. Me guiaron con rúbrica, formato y correcciones hasta quedar conforme con mi avance."</p>
+                        <span>— Karla Mendoza Huamán</span>
                     </article>
 
                     <article class="testimonial-card">
                         <div class="stars">★★★★★</div>
-                        <p>"Logré entender mejor mis materias y sentí que ya no estaba solo en la universidad. Excelente acompañamiento académico."</p>
-                        <span>— Estudiante universitario</span>
+                        <p>"Muy buen trato y respuesta inmediata. Los recomiendo si estás ajustado con el tiempo y necesitas apoyo académico serio."</p>
+                        <span>— Sebastián Paredes Salazar</span>
                     </article>
                 </div>
             </section>
@@ -406,16 +406,16 @@
 
         const careerPrograms = {
             'Ingeniería de Sistemas e Informática': {
-                1: ['Principios de Algoritmos', 'Matemática Básica', 'Comunicación 1', 'Introducción a la Vida Universitaria'],
-                2: ['Taller de Programación', 'Matemática para Ingenieros 1', 'Física 1', 'Comunicación 2'],
-                3: ['Algoritmos y Estructuras de Datos', 'Programación Orientada a Objetos', 'Base de Datos 1', 'Arquitectura de Computadoras'],
-                4: ['Base de Datos 2', 'Desarrollo Web', 'Sistemas Operativos', 'Estadística para Ingeniería'],
-                5: ['Ingeniería de Software 1', 'Redes y Comunicaciones', 'Análisis y Diseño de Sistemas', 'Investigación Operativa'],
-                6: ['Ingeniería de Software 2', 'Aplicaciones Web Avanzadas', 'Seguridad Informática', 'Gestión de Proyectos TI'],
-                7: ['Inteligencia Artificial', 'Aplicaciones Móviles', 'Arquitectura de Software', 'Minería de Datos'],
-                8: ['Cloud Computing', 'DevOps', 'Sistemas Distribuidos', 'Taller de Investigación 1'],
-                9: ['Gobierno de TI', 'Auditoría de Sistemas', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
-                10: ['Gestión de Innovación TI', 'Ciberseguridad Avanzada', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+                1: ['Comprensión y Redacción de Textos I', 'Individuo y Medio Ambiente', 'Inglés I', 'Introducción a la Vida Universitaria', 'Matemática I', 'Principios de Algoritmos'],
+                2: ['Comprensión y Redacción de Textos II', 'Inglés II', 'Matemática II', 'Taller de Programación', 'Física I', 'Ciudadanía y Reflexión Ética'],
+                3: ['Inglés III', 'Matemática para Ingenieros I', 'Algoritmos y Estructuras de Datos', 'Programación Orientada a Objetos', 'Arquitectura de Computadoras', 'Base de Datos'],
+                4: ['Inglés IV', 'Matemática para Ingenieros II', 'Sistemas Operativos', 'Diseño y Arquitectura de Software', 'Desarrollo Web', 'Estadística para Ingeniería'],
+                5: ['Ingeniería de Software', 'Redes y Comunicaciones', 'Análisis y Diseño de Sistemas', 'Investigación Operativa', 'Desarrollo de Aplicaciones Móviles', 'Base de Datos Avanzada'],
+                6: ['Gestión de Proyectos TI', 'Aplicaciones Web Avanzadas', 'Seguridad Informática', 'Calidad de Software', 'Interacción Humano Computadora', 'Metodologías Ágiles'],
+                7: ['Inteligencia Artificial', 'Minería de Datos', 'Arquitectura Empresarial', 'Computación en la Nube', 'DevOps', 'Electivo de Especialidad I'],
+                8: ['Sistemas Distribuidos', 'Gobierno de TI', 'Auditoría de Sistemas', 'Big Data', 'Taller de Investigación I', 'Electivo de Especialidad II'],
+                9: ['Seminario de Tesis I', 'Proyecto Integrador I', 'Ciberseguridad Avanzada', 'Gestión de Servicios TI', 'Analítica de Negocios', 'Electivo de Especialidad III'],
+                10: ['Seminario de Tesis II', 'Proyecto Integrador II', 'Innovación y Transformación Digital', 'Arquitectura de Soluciones', 'Emprendimiento Tecnológico', 'Electivo de Especialidad IV']
             },
             'Ingeniería Industrial': {
                 1: ['Matemática Básica', 'Química General', 'Comunicación 1', 'Introducción a la Ingeniería'],
@@ -575,6 +575,32 @@
             }
         };
 
+        const defaultByCycle = {
+            1: ['Inglés I', 'Comprensión y Redacción de Textos I'],
+            2: ['Inglés II', 'Comprensión y Redacción de Textos II'],
+            3: ['Inglés III', 'Matemática para Ingenieros I'],
+            4: ['Inglés IV', 'Matemática para Ingenieros II'],
+            5: ['Investigación Académica', 'Herramientas Informáticas'],
+            6: ['Gestión de Proyectos', 'Ética Profesional'],
+            7: ['Innovación', 'Electivo I'],
+            8: ['Taller de Investigación I', 'Electivo II'],
+            9: ['Seminario de Tesis I', 'Proyecto Integrador I'],
+            10: ['Seminario de Tesis II', 'Proyecto Integrador II']
+        };
+
+        function normalizeProgramsToSixCourses() {
+            Object.keys(careerPrograms).forEach((career) => {
+                for (let cycle = 1; cycle <= 10; cycle += 1) {
+                    const baseCourses = careerPrograms[career][cycle] || [];
+                    const additions = defaultByCycle[cycle] || [];
+                    const merged = [...new Set([...baseCourses, ...additions])];
+                    careerPrograms[career][cycle] = merged.slice(0, 6);
+                }
+            });
+        }
+
+        normalizeProgramsToSixCourses();
+
         function renderCareerCourses() {
             if (!careerSelect || !cycleSelect || !dynamicCourseList || !careerTitle) {
                 return;
@@ -691,6 +717,7 @@
 
         const assistantWidget = document.getElementById('assistant-widget');
         const assistantToggle = document.getElementById('assistant-toggle');
+        const assistantHeader = document.querySelector('.assistant-header');
         const assistantForm = document.getElementById('assistant-form');
         const assistantInput = document.getElementById('assistant-input');
         const assistantMessages = document.getElementById('assistant-messages');
@@ -973,7 +1000,7 @@
             let startLeft = 0;
             let startTop = 0;
 
-            assistantToggle.addEventListener('pointerdown', (event) => {
+            const startDrag = (event) => {
                 if (event.button !== 0) return;
                 const rect = assistantWidget.getBoundingClientRect();
                 startX = event.clientX;
@@ -1022,7 +1049,13 @@
 
                 window.addEventListener('pointermove', onMove);
                 window.addEventListener('pointerup', onUp);
-            });
+            };
+
+            assistantToggle.addEventListener('pointerdown', startDrag);
+            if (assistantHeader) {
+                assistantHeader.style.cursor = 'grab';
+                assistantHeader.addEventListener('pointerdown', startDrag);
+            }
         }
 
         function setupRevealAnimation() {
@@ -1096,8 +1129,8 @@
                 welcomeOverlay.classList.add('is-leaving');
                 setTimeout(() => {
                     welcomeOverlay.remove();
-                }, 820);
-            }, 2200);
+                }, 1200);
+            }, 4300);
         }
     </script>
 
