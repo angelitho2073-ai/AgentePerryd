@@ -1138,6 +1138,35 @@ h1 {
     border-radius: 999px;
 }
 
+.assistant-mode-bar {
+    display: flex;
+    gap: 8px;
+    padding: 10px 12px 0;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.assistant-mode-btn {
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.72);
+    color: #dbeafe;
+    font-weight: 700;
+    font-size: 0.76rem;
+    padding: 7px 10px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.assistant-mode-btn:hover {
+    border-color: rgba(248, 113, 113, 0.6);
+}
+
+.assistant-mode-btn.is-active {
+    border-color: rgba(248, 113, 113, 0.85);
+    background: linear-gradient(135deg, rgba(127, 29, 29, 0.82), rgba(185, 28, 28, 0.78));
+    color: #fff5f5;
+}
+
 .message {
     padding: 12px 13px;
     border-radius: 16px;

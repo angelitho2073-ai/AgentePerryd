@@ -439,6 +439,12 @@
                 </div>
             </div>
 
+            <div class="assistant-mode-bar" id="assistant-mode-bar" aria-label="Modo de respuesta">
+                <button type="button" class="assistant-mode-btn is-active" data-mode="rapida">Rápida</button>
+                <button type="button" class="assistant-mode-btn" data-mode="detallada">Detallada</button>
+                <button type="button" class="assistant-mode-btn" data-mode="profesional">Profesional</button>
+            </div>
+
             <form class="assistant-form" id="assistant-form">
                 <input id="assistant-input" type="text" placeholder="Escribe tu duda aquí..." autocomplete="off" />
                 <button type="submit">Enviar</button>
@@ -931,6 +937,8 @@
         const assistantForm = document.getElementById('assistant-form');
         const assistantInput = document.getElementById('assistant-input');
         const assistantMessages = document.getElementById('assistant-messages');
+        const assistantModeBar = document.getElementById('assistant-mode-bar');
+        const assistantModeButtons = document.querySelectorAll('.assistant-mode-btn');
         const assistantClose = document.getElementById('assistant-close');
         const assistantRestore = document.getElementById('assistant-restore');
         const quickChips = document.querySelectorAll('.quick-chip');
@@ -939,6 +947,7 @@
             topic: '',
             deadline: '',
             urgency: false,
+            responseMode: 'rapida',
             history: []
         };
         const assistantPresentationMessage = '¡Hola! Soy el asistente virtual de Academia Agente Perry: Operación Excelencia. Puedo responder preguntas de cualquier tema y también apoyarte en asesorías académicas, exámenes y admisión. Si quieres atención directa, te atendemos por WhatsApp al 932598200.';
@@ -988,6 +997,17 @@
 
         function normalizeText(text) {
             return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        }
+
+        function buildModeReply(options) {
+            const selected = assistantState.responseMode || 'rapida';
+            if (selected === 'detallada') {
+                return options.detallada;
+            }
+            if (selected === 'profesional') {
+                return options.profesional;
+            }
+            return options.rapida;
         }
 
         function isPaymentQuery(text) {
@@ -1051,30 +1071,62 @@
             }
 
             if (alreadyInExam && !hasTimeInfo) {
-                return 'Entendido crack ⏱️. Si ya estas en examen, dime cuanto tiempo te queda y te ayudo a priorizar rapido y con cabeza fria 😎.';
+                return buildModeReply({
+                    rapida: 'Entendido. Si ya estás en examen, dime cuánto tiempo te queda y te ayudo a priorizar rápido.',
+                    detallada: 'Entendido. Si ya estás en examen, dime exactamente cuántos minutos te quedan, qué tipo de preguntas vienen y qué parte te complica. Con eso te doy un orden de respuesta para aprovechar mejor el tiempo.',
+                    profesional: 'Entendido. Indícame el tiempo restante y el tipo de evaluación para proponerte una estrategia de priorización inmediata y eficaz.'
+                });
             }
 
             if (mentionsExam && !alreadyInExam) {
-                return 'Perfecto, te apoyo con ese examen 📘. ¿Que fecha es, a que hora empieza y que temas entran?';
+                return buildModeReply({
+                    rapida: 'Perfecto, te apoyo con ese examen. ¿Qué fecha es y qué temas entran?',
+                    detallada: 'Perfecto, te apoyo con ese examen. Pásame fecha, hora, temas y tipo de evaluación (objetiva, desarrollo o mixto), y te preparo una guía práctica de estudio.',
+                    profesional: 'Con gusto te apoyo. Comparte fecha, hora y temario del examen para estructurar una preparación enfocada y eficiente.'
+                });
             }
 
             if (text.includes('precio') || text.includes('costo') || text.includes('cotizar') || text.includes('cuanto')) {
-                return 'El precio depende de la rúbrica, dificultad y fecha de entrega 💰. Si me compartes esos 3 datos, te doy una cotización más precisa.';
+                return buildModeReply({
+                    rapida: 'El precio depende de rúbrica, dificultad y fecha de entrega. Si me pasas esos 3 datos, te cotizo exacto.',
+                    detallada: 'El precio se calcula según la complejidad real, la rúbrica solicitada y el tiempo disponible. Si me envías curso, tipo de trabajo y fecha límite, te doy una cotización precisa.',
+                    profesional: 'La cotización se define por complejidad, rúbrica y urgencia de entrega. Compárteme esos datos y te brindaré una propuesta exacta.'
+                });
             }
 
             if (text.includes('whatsapp') || text.includes('numero') || text.includes('número') || text.includes('contacto')) {
-                return `Claro crack 📲. Escríbeme por WhatsApp aquí: ${whatsappLink} y envíame las indicaciones completas.`;
+                return buildModeReply({
+                    rapida: `Claro, escríbeme por WhatsApp: ${whatsappLink}.`,
+                    detallada: `Claro. Escríbeme por WhatsApp aquí: ${whatsappLink} y envíame tema, objetivo y fecha para ayudarte mejor.`,
+                    profesional: `Con gusto. Puedes contactarme por WhatsApp en ${whatsappLink} para una atención directa.`
+                });
             }
 
             if (assistantState.topic) {
                 const deadlineHint = assistantState.deadline ? ` para ${assistantState.deadline}` : '';
-                return `Perfecto, te apoyo con ${assistantState.topic}${deadlineHint}. Si quieres, te doy una guía rápida paso a paso o te ayudo a resolver una duda puntual ahora mismo.`;
+                return buildModeReply({
+                    rapida: `Perfecto, te apoyo con ${assistantState.topic}${deadlineHint}. Dime tu duda puntual y la resolvemos.`,
+                    detallada: `Perfecto, te apoyo con ${assistantState.topic}${deadlineHint}. Si quieres, te doy una guía paso a paso con enfoque práctico para que avances sin perder tiempo.`,
+                    profesional: `Perfecto, te apoyo con ${assistantState.topic}${deadlineHint}. Indícame el objetivo específico y te brindaré una orientación clara y estructurada.`
+                });
             }
 
             return randomChoice([
-                'Claro, te ayudo con esa consulta. Cuéntame el tema exacto y te respondo de forma clara y directa.',
-                'Sí, puedo ayudarte con eso. Escribe tu pregunta completa y te doy una respuesta útil paso a paso.',
-                'Perfecto, dime exactamente qué quieres resolver y te explico en simple, incluso si es de un tema general.'
+                buildModeReply({
+                    rapida: 'Claro, te ayudo con esa consulta. Dime el tema exacto.',
+                    detallada: 'Claro, te ayudo con esa consulta. Escribe tu pregunta completa y te respondo con una explicación clara y útil.',
+                    profesional: 'Con gusto te ayudo. Formula tu consulta y te responderé de manera clara, precisa y estructurada.'
+                }),
+                buildModeReply({
+                    rapida: 'Sí, puedo ayudarte con eso. Cuéntame qué quieres resolver.',
+                    detallada: 'Sí, puedo ayudarte con eso. Dime contexto, objetivo y limitaciones, y te doy una respuesta bien enfocada.',
+                    profesional: 'Sí, puedo ayudarte con eso. Indícame el objetivo y te propongo la mejor ruta de solución.'
+                }),
+                buildModeReply({
+                    rapida: 'Perfecto, dime tu consulta y vamos directo al punto.',
+                    detallada: 'Perfecto, dime tu consulta y te doy una respuesta paso a paso, incluso si es de un tema general.',
+                    profesional: 'Perfecto, comparte tu consulta y te brindaré una respuesta técnica y accionable.'
+                })
             ]);
         }
 
@@ -1099,7 +1151,8 @@
                         context: {
                             topic: assistantState.topic,
                             deadline: assistantState.deadline,
-                            urgency: assistantState.urgency
+                            urgency: assistantState.urgency,
+                            responseMode: assistantState.responseMode
                         }
                     }),
                     signal: controller.signal
@@ -1340,6 +1393,22 @@
             const isOpen = assistantWidget.classList.toggle('open');
             assistantToggle.setAttribute('aria-expanded', String(isOpen));
         });
+
+        if (assistantModeBar && assistantModeButtons.length) {
+            assistantModeBar.addEventListener('click', (event) => {
+                const button = event.target.closest('.assistant-mode-btn');
+                if (!button) {
+                    return;
+                }
+
+                assistantState.responseMode = button.dataset.mode || 'rapida';
+                assistantModeButtons.forEach((item) => {
+                    item.classList.toggle('is-active', item === button);
+                });
+
+                trackEvent('assistant_mode_change', { mode: assistantState.responseMode });
+            });
+        }
 
         quickChips.forEach((chip) => {
             chip.addEventListener('click', async () => {

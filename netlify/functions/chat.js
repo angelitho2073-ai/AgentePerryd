@@ -14,6 +14,7 @@ exports.handler = async (event) => {
         const message = String(body.message || '').trim();
         const history = Array.isArray(body.history) ? body.history : [];
         const context = body.context || {};
+        const responseMode = context.responseMode || 'rapida';
 
         if (!message) {
             return {
@@ -26,6 +27,7 @@ exports.handler = async (event) => {
             const base = [
                 'Excelente, te puedo ayudar con eso.',
                 `Tema detectado: ${context.topic || 'general'}.`,
+                `Modo de respuesta activo: ${responseMode}.`,
                 'Tambien puedo responder consultas generales de cualquier tema de forma clara y directa.'
             ];
 
@@ -55,6 +57,10 @@ exports.handler = async (event) => {
         const systemPrompt = [
             'Eres el asistente virtual de Academia Agente Perry: Operacion Excelencia.',
             'Responde en espanol, con tono cercano, profesional y seguro.',
+            `Modo de respuesta solicitado por el usuario: ${responseMode}.`,
+            'Si el modo es rapida: responde en 1-3 lineas directas.',
+            'Si el modo es detallada: responde con mayor contexto, pasos y recomendaciones practicas.',
+            'Si el modo es profesional: responde formal, preciso y estructurado.',
             'Puedes usar humor ligero y emojis moderados para sonar mas humano, sin perder profesionalismo.',
             'Debes poder responder preguntas de cualquier tema (academico o general) con utilidad real.',
             'Si la consulta es academica o de admision, prioriza enfoque de asesoria y orientacion accionable.',
