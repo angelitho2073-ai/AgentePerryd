@@ -157,6 +157,31 @@
                 </div>
             </section>
 
+            <section class="study-modes" id="modalidades">
+                <div class="section-heading">
+                    <h2>Modalidades de estudio</h2>
+                    <p>Elige la modalidad que se adapta a tu ritmo y nosotros te apoyamos en cada entrega.</p>
+                </div>
+                <div class="study-modes-grid">
+                    <article class="mode-card">
+                        <h3>Presencial</h3>
+                        <p>Acompañamiento para tareas, avances y exámenes de clases en campus.</p>
+                    </article>
+                    <article class="mode-card">
+                        <h3>Semipresencial</h3>
+                        <p>Soporte híbrido para cursos con sesiones en aula y plataforma virtual.</p>
+                    </article>
+                    <article class="mode-card">
+                        <h3>100% Virtual</h3>
+                        <p>Asesoría completa para cursos online, foros, rúbricas y evaluaciones remotas.</p>
+                    </article>
+                    <article class="mode-card">
+                        <h3>A distancia / Híbrida</h3>
+                        <p>Te guiamos en actividades síncronas y asíncronas según tu modalidad activa.</p>
+                    </article>
+                </div>
+            </section>
+
             <section class="areas" id="cursos">
                 <div class="section-heading">
                     <h2>Cursos por carrera y ciclo (UTP)</h2>
@@ -177,6 +202,16 @@
                         <label for="career-select">
                             Carrera
                             <select id="career-select" aria-label="Seleccionar carrera"></select>
+                        </label>
+                        <label for="mode-select">
+                            Modalidad
+                            <select id="mode-select" aria-label="Seleccionar modalidad">
+                                <option value="Presencial">Presencial</option>
+                                <option value="Semipresencial">Semipresencial</option>
+                                <option value="100% Virtual">100% Virtual</option>
+                                <option value="A distancia">A distancia</option>
+                                <option value="Híbrida">Híbrida</option>
+                            </select>
                         </label>
                         <label for="cycle-select">
                             Ciclo
@@ -337,6 +372,7 @@
     <script>
         const facultySelect = document.getElementById('faculty-select');
         const careerSelect = document.getElementById('career-select');
+        const modeSelect = document.getElementById('mode-select');
         const cycleSelect = document.getElementById('cycle-select');
         const dynamicCourseList = document.getElementById('dynamic-course-list');
         const careerTitle = document.getElementById('career-title');
@@ -638,15 +674,16 @@
         }
 
         function renderCareerCourses() {
-            if (!careerSelect || !cycleSelect || !dynamicCourseList || !careerTitle) {
+            if (!careerSelect || !modeSelect || !cycleSelect || !dynamicCourseList || !careerTitle) {
                 return;
             }
 
             const selectedCareer = careerSelect.value;
+            const selectedMode = modeSelect.value;
             const selectedCycle = cycleSelect.value;
             const courses = careerPrograms[selectedCareer]?.[selectedCycle] || [];
 
-            careerTitle.textContent = `${selectedCareer} - ${selectedCycle} ciclo`;
+            careerTitle.textContent = `${selectedCareer} - ${selectedCycle} ciclo - ${selectedMode}`;
             dynamicCourseList.innerHTML = '';
 
             if (!courses.length) {
@@ -662,14 +699,14 @@
                 button.type = 'button';
                 button.className = 'course-btn';
                 button.textContent = course;
-                button.dataset.course = `${selectedCareer} | ${selectedCycle} ciclo | ${course}`;
+                button.dataset.course = `${selectedCareer} | ${selectedCycle} ciclo | ${selectedMode} | ${course}`;
                 button.classList.add(buttonAnimations[index % buttonAnimations.length]);
                 dynamicCourseList.appendChild(button);
             });
         }
 
         function initializeCareerExplorer() {
-            if (!facultySelect || !careerSelect || !cycleSelect || !dynamicCourseList || !careerTitle) {
+            if (!facultySelect || !careerSelect || !modeSelect || !cycleSelect || !dynamicCourseList || !careerTitle) {
                 return;
             }
 
@@ -698,6 +735,7 @@
 
             facultySelect.addEventListener('change', renderCareerOptions);
             careerSelect.addEventListener('change', renderCareerCourses);
+            modeSelect.addEventListener('change', renderCareerCourses);
             cycleSelect.addEventListener('change', renderCareerCourses);
 
             renderCareerMasterList();
@@ -790,7 +828,7 @@
             void button.offsetWidth;
             button.classList.add('is-pressed');
 
-            const message = encodeURIComponent(`Hola Agente Perry, quiero cotizar el curso: ${button.dataset.course}`);
+            const message = encodeURIComponent(`Hola Agente Perry, quiero cotizar el curso: ${button.dataset.course}.`);
             trackWhatsAppClick('course-button', button.dataset.course);
             window.open(`https://wa.me/51932598200?text=${message}`, '_blank', 'noopener');
 
