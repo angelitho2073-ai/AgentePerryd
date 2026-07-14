@@ -677,6 +677,18 @@ h1 {
     font-weight: 700;
 }
 
+.testimonials-more-wrap {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.testimonials-more:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
 .contact-strip {
     margin-top: 26px;
     padding: 26px;

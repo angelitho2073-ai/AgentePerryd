@@ -185,7 +185,7 @@
                             </select>
                         </label>
                     </div>
-                    <p class="career-note">Malla referencial por carrera y ciclo para cotizaciones academicas.</p>
+                    <p class="career-note">Malla referencial basada en mallas publicas UTP por carrera y ciclo para cotizaciones academicas.</p>
                     <h3 id="career-title">Selecciona una carrera para ver sus cursos</h3>
                     <div class="course-list" id="dynamic-course-list"></div>
                 </article>
@@ -216,7 +216,7 @@
                     <p>Estudiantes que confiaron en Agente Perry y lograron avanzar con éxito en su universidad.</p>
                 </div>
 
-                <div class="testimonial-grid">
+                <div class="testimonial-grid" id="testimonial-grid">
                     <article class="testimonial-card">
                         <div class="stars">★★★★★</div>
                         <p>"Me ayudaron a ordenar todo mi curso desde cero. Entregué a tiempo, bien sustentado y con excelente presentación."</p>
@@ -234,6 +234,9 @@
                         <p>"Muy buen trato y respuesta inmediata. Los recomiendo si estás ajustado con el tiempo y necesitas apoyo académico serio."</p>
                         <span>— Sebastián Paredes Salazar</span>
                     </article>
+                </div>
+                <div class="testimonials-more-wrap">
+                    <button class="secondary-btn testimonials-more" id="testimonials-more" type="button">Ver más testimonios</button>
                 </div>
             </section>
 
@@ -502,28 +505,28 @@
                 10: ['Gerencia General', 'Estrategia Competitiva', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
             },
             'Administración y Marketing': {
-                1: ['Fundamentos de Administración', 'Comunicación 1', 'Matemática Básica', 'Introducción a la Vida Universitaria'],
-                2: ['Comunicación 2', 'Estadística Básica', 'Economía General', 'Contabilidad General'],
-                3: ['Comportamiento del Consumidor', 'Marketing 1', 'Diseño de Contenidos', 'Investigación de Mercados 1'],
-                4: ['Marketing 2', 'Branding', 'Marketing Digital 1', 'Analítica Web'],
-                5: ['Trade Marketing', 'E-commerce', 'Publicidad y Medios', 'Estrategias Comerciales'],
-                6: ['Marketing Digital 2', 'CRM y Fidelización', 'Inteligencia Comercial', 'Gestión de Ventas'],
-                7: ['Plan de Marketing', 'Neuromarketing', 'Dirección Comercial', 'Gestión de Proyectos'],
-                8: ['Innovación de Productos', 'Marketing Internacional', 'Métricas de Marketing', 'Taller de Investigación 1'],
-                9: ['Consultoría de Marketing', 'Gerencia de Marca', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
-                10: ['Dirección Estratégica de Marketing', 'Emprendimiento Comercial', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+                1: ['Introducción a la Vida Universitaria', 'Problemas y Desafíos en el Perú Actual', 'Comprensión y Redacción de Textos 1', 'Fundamentos de Contabilidad y Finanzas', 'Matemática para los Negocios 1', 'Introducción a la Administración'],
+                2: ['Comprensión y Redacción de Textos 2', 'Inglés 1', 'Matemática para los Negocios 2', 'Gestión General', 'Derecho Empresarial', 'Contabilidad Financiera'],
+                3: ['Contabilidad Gerencial y de Costos', 'Inglés 2', 'Informática para los Negocios', 'Estadística Aplicada para los Negocios', 'Individuo y Medio Ambiente'],
+                4: ['Inglés 3', 'Ciudadanía y Reflexión Ética', 'Comportamiento del Consumidor', 'Finanzas Aplicadas', 'Microeconomía y Macroeconomía', 'Fundamentos de Marketing'],
+                5: ['Inglés 4', 'Investigación Académica', 'Investigación Operativa', 'Investigación de Mercados', 'Curso Integrador en Administración y Negocios'],
+                6: ['Fundamentos de Gestión Retail', 'Marketing Digital', 'Plan de Mercado', 'Negocios Digitales', 'Ventas', 'Estrategia de Precio'],
+                7: ['Estrategias en Promoción y Ventas', 'Marketing Estratégico', 'Diseño y Gestión de Marcas', 'Marketing Social', 'Publicidad', 'Electivo 1'],
+                8: ['Formación para la Empleabilidad', 'Category Management', 'Customer Relationship Management (CRM)', 'Análisis y Estrategias del Marketing Digital', 'Normatividad Legal del Marketing', 'Formación para la Investigación - Administración y Negocios'],
+                9: ['Curso Integrador en Gestión del Marketing', 'Ética Profesional y Responsabilidad Social', 'Marketing Internacional', 'Retail Management', 'Globalización y Consumidor Multicultural', 'Electivo 2'],
+                10: ['Taller de Investigación - Administración y Marketing', 'Herramientas de Desarrollo Profesional - Marketing', 'Gestión de Ferias y Promociones', 'Dirección Estratégica', 'Electivo 3']
             },
             'Contabilidad': {
-                1: ['Contabilidad Básica', 'Comunicación 1', 'Matemática Básica', 'Introducción a la Vida Universitaria'],
-                2: ['Contabilidad Financiera 1', 'Comunicación 2', 'Economía General', 'Estadística Básica'],
-                3: ['Contabilidad Financiera 2', 'Matemática Financiera', 'Derecho Empresarial', 'Microeconomía'],
-                4: ['Contabilidad de Costos 1', 'Tributación 1', 'Macroeconomía', 'Sistemas Contables'],
-                5: ['Contabilidad de Costos 2', 'Tributación 2', 'Finanzas 1', 'Auditoría 1'],
-                6: ['NIIF 1', 'Finanzas 2', 'Auditoría 2', 'Gestión de Presupuestos'],
-                7: ['NIIF 2', 'Tributación Avanzada', 'Análisis de Estados Financieros', 'Control Interno'],
-                8: ['Planeamiento Tributario', 'Peritaje Contable', 'Contabilidad Gerencial', 'Taller de Investigación 1'],
-                9: ['Auditoría Integral', 'Consultoría Contable', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
-                10: ['Dirección Financiera', 'Gerencia Contable', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+                1: ['Introducción a la Vida Universitaria', 'Individuo y Medio Ambiente', 'Comprensión y Redacción de Textos 1', 'Matemática para los Negocios 1', 'Introducción a la Administración', 'Introducción a la Contabilidad'],
+                2: ['Comprensión y Redacción de Textos 2', 'Inglés 1', 'Informática Aplicada', 'Gestión del Potencial Humano y Estrategias', 'Ciclo Contable', 'Matemática para los Negocios 2'],
+                3: ['Problemas y Desafíos en el Perú Actual', 'Inglés 2', 'Desarrollo de Habilidades Personales', 'Matemática Financiera', 'Derecho Empresarial', 'Contabilidad de Sociedades'],
+                4: ['Inglés 3', 'Ciudadanía y Reflexión Ética', 'Legislación Comercial y Laboral', 'Estados Financieros', 'Microeconomía y Macroeconomía', 'Estadística Aplicada para los Negocios'],
+                5: ['Inglés 4', 'Investigación Académica', 'Contabilidad de MYPES', 'Legislación Tributaria', 'Análisis de la Información Financiera', 'Costos Comerciales y de Servicios'],
+                6: ['Curso Integrador 1: Contabilidad', 'Gestión Financiera', 'Tributación Empresarial', 'Costos Industriales', 'Normas Internacionales de Información Financiera', 'Electivo 1'],
+                7: ['Contabilidad Informática', 'Control Interno', 'Emprendimiento de Nuevos Negocios', 'Gestión Financiera Avanzada', 'Tributación Aduanera y Empresarial', 'Gestión de Costos'],
+                8: ['Contabilidad Gubernamental', 'Banca y Seguros', 'Mercado de Capitales', 'Auditoría Financiera 1', 'Análisis de Datos', 'Impacto Tributario de las NIIF'],
+                9: ['Formación para la Empleabilidad', 'Curso Integrador 2: Contabilidad', 'Auditoría Financiera 2', 'Finanzas Corporativas', 'ERP - Planificación de Recursos Empresariales', 'Formación para la Investigación - Contabilidad'],
+                10: ['Ética Profesional - CC', 'Contabilidad Internacional', 'Costos Estratégicos', 'Gerencia y Estrategia', 'Taller de Investigación - Contabilidad', 'Auditoría Gubernamental']
             },
             'Derecho': {
                 1: ['Introducción al Derecho', 'Comunicación 1', 'Realidad Nacional', 'Metodología del Estudio'],
@@ -538,16 +541,16 @@
                 10: ['Clínica Jurídica 2', 'Práctica Preprofesional', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
             },
             'Psicología': {
-                1: ['Introducción a la Psicología', 'Comunicación 1', 'Biología Humana', 'Desarrollo Personal'],
-                2: ['Comunicación 2', 'Neurociencia Básica', 'Psicología del Desarrollo 1', 'Estadística Básica'],
-                3: ['Psicología del Desarrollo 2', 'Procesos Psicológicos', 'Psicometría 1', 'Metodología de la Investigación'],
-                4: ['Psicología Social', 'Psicopatología 1', 'Psicometría 2', 'Entrevista Psicológica'],
-                5: ['Psicopatología 2', 'Evaluación Psicológica', 'Psicología Educativa', 'Psicología Organizacional 1'],
-                6: ['Psicología Clínica 1', 'Psicología Organizacional 2', 'Terapia Cognitivo Conductual', 'Psicología Comunitaria'],
-                7: ['Psicología Clínica 2', 'Consejería Psicológica', 'Intervención en Crisis', 'Investigación en Psicología'],
-                8: ['Neuropsicología', 'Psicología Forense', 'Práctica Supervisada 1', 'Taller de Investigación 1'],
-                9: ['Diseño de Programas de Intervención', 'Ética Profesional', 'Seminario de Tesis 1', 'Práctica Supervisada 2'],
-                10: ['Gestión de Servicios Psicológicos', 'Supervisión Clínica', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+                1: ['Introducción a la Vida Universitaria', 'Observación del Comportamiento', 'Introducción a la Psicología', 'Individuo y Medio Ambiente', 'Inglés 1', 'Comprensión y Redacción de Textos 1'],
+                2: ['Observación y Entrevista', 'Psicología del Desarrollo 1: Aprendizaje de Servicio', 'Tecnologías del Aprendizaje', 'Bases Biológicas del Comportamiento', 'Inglés 2', 'Comprensión y Redacción de Textos 2'],
+                3: ['Psicología Experimental', 'Psicología del Desarrollo 2: Aprendizaje de Servicio', 'Personalidad', 'Neuropsicología', 'Inglés 3', 'Problemas y Desafíos en el Perú Actual'],
+                4: ['Psicología Social - Comunitaria', 'Estadística Descriptiva para Psicología', 'Psicopatología', 'Pruebas Psicométricas', 'Inglés 4', 'Ciudadanía y Reflexión Ética'],
+                5: ['Motivación y Emoción', 'Estadística Inferencial para Psicología', 'Curso Integrador 1: Portafolio 1', 'Pruebas Proyectivas', 'Investigación Académica', 'Electivo 1'],
+                6: ['Psicología de las Organizaciones', 'Dinámica de Grupos', 'Diagnóstico Diferencial', 'Psicología Cultural', 'Psicología Educativa', 'Construcción de Pruebas Psicológicas'],
+                7: ['Técnicas Psicoterapéuticas', 'Diagnóstico Vocacional y Educacional', 'Creatividad e Innovación', 'Gestión Humana en las Organizaciones', 'Dificultades del Aprendizaje', 'Electivo 2'],
+                8: ['Diagnóstico y Desarrollo Organizacional', 'Curso Integrador 2: Portafolio 2', 'Formación para la Investigación en Psicología', 'Ética en Psicología', 'Salud Mental y Rehabilitación Social', 'Intervención Psicoeducativa'],
+                9: ['Investigación Aplicada a la Psicología', 'Internado 1', 'Consultoría en Organizaciones'],
+                10: ['Taller de Investigación - Psicología', 'Internado 2', 'Formación para la Empleabilidad']
             },
             'Economía y Negocios Internacionales': {
                 1: ['Introducción a la Economía', 'Comunicación 1', 'Matemática Básica', 'Introducción a la Vida Universitaria'],
@@ -562,44 +565,30 @@
                 10: ['Estrategia Global', 'Gerencia de Comercio Exterior', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
             },
             'Administración de Negocios Internacionales': {
-                1: ['Fundamentos de Administración', 'Comunicación 1', 'Matemática Básica', 'Introducción a la Vida Universitaria'],
-                2: ['Comunicación 2', 'Estadística Básica', 'Economía General', 'Contabilidad General'],
-                3: ['Comercio Internacional 1', 'Matemática Financiera', 'Logística 1', 'Microeconomía'],
-                4: ['Comercio Internacional 2', 'Gestión Aduanera', 'Logística 2', 'Macroeconomía'],
-                5: ['Contratos Internacionales', 'Finanzas Internacionales', 'Marketing Internacional', 'Supply Chain Global'],
-                6: ['Incoterms y Medios de Pago', 'Inteligencia Comercial', 'Negociación Internacional', 'Gestión de Riesgos'],
-                7: ['Planeamiento de Exportaciones', 'Gestión de Importaciones', 'E-commerce Internacional', 'Gestión de Proyectos'],
-                8: ['Integración Económica', 'Dirección Comercial Internacional', 'Analítica de Negocios', 'Taller de Investigación 1'],
-                9: ['Consultoría en Comercio Exterior', 'Dirección Estratégica', 'Seminario de Tesis 1', 'Proyecto Integrador 1'],
-                10: ['Gerencia de Negocios Globales', 'Innovación en Comercio Exterior', 'Seminario de Tesis 2', 'Proyecto Integrador 2']
+                1: ['Problemas y Desafíos en el Perú Actual', 'Comprensión y Redacción de Textos 1', 'Fundamentos de Contabilidad y Finanzas', 'Matemática para los Negocios 1', 'Introducción a la Vida Universitaria', 'Introducción a la Administración'],
+                2: ['Comprensión y Redacción de Textos 2', 'Inglés 1', 'Matemática para los Negocios 2', 'Gestión General', 'Derecho Empresarial', 'Contabilidad Financiera'],
+                3: ['Contabilidad Gerencial y de Costos', 'Individuo y Medio Ambiente', 'Inglés 2', 'Informática para los Negocios', 'Estadística Aplicada para los Negocios'],
+                4: ['Inglés 3', 'Ciudadanía y Reflexión Ética', 'Teoría del Comercio Internacional', 'Finanzas Aplicadas', 'Microeconomía y Macroeconomía', 'Fundamentos de Marketing'],
+                5: ['Inglés 4', 'Investigación Académica', 'Relaciones Internacionales', 'Análisis e Investigación de Mercados Internacionales', 'Curso Integrador en Administración y Negocios', 'Exportaciones'],
+                6: ['Dirección de Comercio Internacional', 'Importaciones', 'Inteligencia de Mercados Internacionales', 'Nomenclatura Arancelaria y Tributación del Comercio Exterior', 'Organización Transcultural y Global', 'Negocios Digitales'],
+                7: ['Acuerdos Comerciales y Legislación en Comercio Exterior', 'Clima de Negocios y Competitividad de los Países', 'Estructuración de Negocios Globales', 'Envases, Embalajes y Sistemas de Infraestructura Internacional', 'Negociación Internacional', 'Electivo 1'],
+                8: ['Formación para la Empleabilidad', 'Derecho del Comercio Internacional', 'Valoración Aduanera', 'Marketing Internacional', 'Logística Internacional', 'Formación para la Investigación - Administración y Negocios'],
+                9: ['Ética Profesional y Responsabilidad Social', 'Curso Integrador en Gestión de Negocios Internacionales', 'Finanzas Internacionales', 'Ferias y Misiones Internacionales', 'Estrategias en Negocios Internacionales', 'Electivo 2'],
+                10: ['Taller de Investigación - Administración de Negocios Internacionales', 'Herramientas de Desarrollo Profesional - Gestión', 'Financiación de Negocios Internacionales', 'Políticas de Comercio Exterior Comparadas', 'Electivo 3']
+            },
+            'Ingeniería de Software': {
+                1: ['Introducción a la Vida Universitaria', 'Comprensión y Redacción de Textos 1', 'Inglés 1', 'Matemática 1', 'Principios de Algoritmos', 'Individuo y Medio Ambiente'],
+                2: ['Comprensión y Redacción de Textos 2', 'Inglés 2', 'Matemática 2', 'Introducción a las TIC', 'Taller de Programación', 'Matemática Discreta'],
+                3: ['Cálculo 1', 'Inglés 3', 'Ciudadanía y Reflexión Ética', 'Programación Orientada a Objetos', 'Base de Datos', 'Estadística Descriptiva y Probabilidades'],
+                4: ['Inglés 4', 'Investigación Académica', 'Análisis y Diseño de Algoritmos', 'Sistemas Operativos', 'Cálculo 2', 'Estadística Inferencial'],
+                5: ['Algoritmos y Estructuras de Datos', 'Redes y Comunicación de Datos 1', 'Base de Datos 2', 'Diseño de Patrones', 'Taller de Programación Web', 'Curso Integrador 1'],
+                6: ['Análisis y Diseño de Sistemas de Información', 'Gestión de Proyectos', 'Java Script Avanzado', 'Marcos de Desarrollo Web', 'Hoja de Estilo en Cascada Avanzado', 'Administración y Organización de Empresas'],
+                7: ['Seguridad Informática', 'Lenguajes de Programación', 'Teoría de Sistemas', 'Desarrollo Web Integrado', 'Herramientas de Desarrollo', 'Liderazgo y Gestión de Equipos'],
+                8: ['Innovación y Transformación Digital', 'Arquitectura Empresarial', 'Herramientas de Prototipado', 'Gestión del Servicio TI', 'Inteligencia de Negocios', 'Herramientas para la Comunicación Efectiva'],
+                9: ['Curso Integrador 2', 'Interacción Hombre Máquina', 'Planeamiento Estratégico de las TICs', 'Formación para la Investigación - Sistemas', 'Sistemas de Información Empresarial', 'Gestión del Conocimiento'],
+                10: ['Taller de Investigación - Sistemas', 'Herramientas de Desarrollo Profesional - TIC', 'Ética Profesional', 'Formación para la Empleabilidad', 'Servicios Cloud', 'Ingeniería Económica']
             }
         };
-
-        const defaultByCycle = {
-            1: ['Inglés I', 'Comprensión y Redacción de Textos I'],
-            2: ['Inglés II', 'Comprensión y Redacción de Textos II'],
-            3: ['Inglés III', 'Matemática para Ingenieros I'],
-            4: ['Inglés IV', 'Matemática para Ingenieros II'],
-            5: ['Investigación Académica', 'Herramientas Informáticas'],
-            6: ['Gestión de Proyectos', 'Ética Profesional'],
-            7: ['Innovación', 'Electivo I'],
-            8: ['Taller de Investigación I', 'Electivo II'],
-            9: ['Seminario de Tesis I', 'Proyecto Integrador I'],
-            10: ['Seminario de Tesis II', 'Proyecto Integrador II']
-        };
-
-        function normalizeProgramsToSixCourses() {
-            Object.keys(careerPrograms).forEach((career) => {
-                for (let cycle = 1; cycle <= 10; cycle += 1) {
-                    const baseCourses = careerPrograms[career][cycle] || [];
-                    const additions = defaultByCycle[cycle] || [];
-                    const merged = [...new Set([...baseCourses, ...additions])];
-                    careerPrograms[career][cycle] = merged.slice(0, 6);
-                }
-            });
-        }
-
-        normalizeProgramsToSixCourses();
 
         function renderCareerCourses() {
             if (!careerSelect || !cycleSelect || !dynamicCourseList || !careerTitle) {
@@ -650,6 +639,42 @@
         }
 
         initializeCareerExplorer();
+
+        const testimonialGrid = document.getElementById('testimonial-grid');
+        const testimonialsMoreButton = document.getElementById('testimonials-more');
+        const additionalTestimonials = [
+            { text: '"Yo estaba a punto de jalar el curso y me ayudaron a organizar todo por entregas. Cero estrés y buena nota final."', name: '— Andrea Cárdenas León' },
+            { text: '"Mi docente pidió cambios de última hora y me respondieron rápido. Quedó bien sustentado y ordenado."', name: '— Luis Herrera Quispe' },
+            { text: '"En exámenes me guiaron por pasos y priorizando tiempos. Excelente soporte y trato profesional."', name: '— Camila Rivas Torres' },
+            { text: '"Me apoyaron con rúbrica y formato APA. Presenté sin miedo porque entendía todo lo que entregaba."', name: '— Jorge Palomino Vera' },
+            { text: '"La atención por WhatsApp fue inmediata y clara. Cumplieron plazos y calidad en cada avance."', name: '— Valeria Medina Soto' },
+            { text: '"Muy recomendable para cursos pesados. Me ayudaron desde el planteamiento hasta la versión final."', name: '— Renato Gamarra Núñez' }
+        ];
+        let testimonialOffset = 0;
+
+        function renderMoreTestimonials() {
+            if (!testimonialGrid || !testimonialsMoreButton) {
+                return;
+            }
+
+            const chunk = additionalTestimonials.slice(testimonialOffset, testimonialOffset + 3);
+            chunk.forEach((item) => {
+                const card = document.createElement('article');
+                card.className = 'testimonial-card';
+                card.innerHTML = `<div class="stars">★★★★★</div><p>${item.text}</p><span>${item.name}</span>`;
+                testimonialGrid.appendChild(card);
+            });
+
+            testimonialOffset += chunk.length;
+            if (testimonialOffset >= additionalTestimonials.length) {
+                testimonialsMoreButton.textContent = 'No hay más testimonios';
+                testimonialsMoreButton.disabled = true;
+            }
+        }
+
+        if (testimonialsMoreButton) {
+            testimonialsMoreButton.addEventListener('click', renderMoreTestimonials);
+        }
 
         function playPerrySound() {
             const AudioContextCtor = window.AudioContext || window.webkitAudioContext;
