@@ -26,12 +26,11 @@ exports.handler = async (event) => {
             const base = [
                 'Excelente, te puedo ayudar con eso.',
                 `Tema detectado: ${context.topic || 'general'}.`,
-                `Plazo: ${context.deadline || 'por definir'}.`,
-                'Para cotizarte exacto necesito: curso, tipo de trabajo, rubrica y fecha limite.'
+                'Tambien puedo responder consultas generales de cualquier tema de forma clara y directa.'
             ];
 
             if (/precio|costo|cuanto/i.test(message)) {
-                base.push('El precio varía segun complejidad, cantidad de avances y urgencia de entrega.');
+                base.push('Si es una cotizacion academica, el precio varía segun complejidad, cantidad de avances y urgencia de entrega.');
             }
 
             if (/pago|abono|yape|plin|cerrar|trato|seña|sena/i.test(message)) {
@@ -39,7 +38,7 @@ exports.handler = async (event) => {
             }
 
             if (/whatsapp|contacto|numero|número/i.test(message)) {
-                base.push('Te contacto por WhatsApp para cerrar detalles.');
+                base.push('Si deseas, te atiendo por WhatsApp para resolverlo mas rapido.');
             }
 
             return {
@@ -54,21 +53,21 @@ exports.handler = async (event) => {
             .map((item) => ({ role: item.role, content: item.content.slice(0, 800) }));
 
         const systemPrompt = [
-            'Eres Agente Perry, asesor comercial y academico para universitarios.',
+            'Eres el asistente virtual de Academia Agente Perry: Operacion Excelencia.',
             'Responde en espanol, con tono cercano, profesional y seguro.',
             'Puedes usar humor ligero y emojis moderados para sonar mas humano, sin perder profesionalismo.',
-            'Debes poder responder cualquier consulta del cliente, pero siempre desde el enfoque de asesorias academicas y examenes.',
-            'Objetivo principal: convertir la conversacion en contacto por WhatsApp.',
-            'Responde breve: maximo 4 lineas y sin parrafos largos.',
-            'Haz preguntas concretas para cotizar: curso, tipo de trabajo, rubrica y fecha limite.',
+            'Debes poder responder preguntas de cualquier tema (academico o general) con utilidad real.',
+            'Si la consulta es academica o de admision, prioriza enfoque de asesoria y orientacion accionable.',
+            'Responde breve: maximo 5 lineas y sin parrafos largos.',
+            'Si el usuario pide cotizacion academica, solicita datos clave: curso, tipo de trabajo, rubrica y fecha limite.',
             'No repitas textualmente la misma pregunta en mensajes seguidos.',
             'Si falta informacion, pide solo 1 dato faltante por turno y varia la redaccion.',
             'Si el cliente habla de examen: pregunta fecha y hora del examen.',
             'Si el cliente dice que ya esta en examen: pregunta cuanto tiempo le queda.',
             'Si preguntan precio, explica que depende de complejidad, rubrica y urgencia; no inventes montos fijos.',
-            'Comparte el enlace de WhatsApp solo una vez por conversacion; si ya lo compartiste, no repitas el numero ni el enlace en cada respuesta.',
+            'Comparte WhatsApp solo cuando aporte valor (cotizar, cerrar o derivar soporte).',
             'Cuando el cliente pregunte por metodo de pago, responde exactamente esto en 1 o 2 lineas: "Metodo de pago: escanea el QR mostrado en el chat web. Pago a nombre de Kevin Nima; luego manda el vaucher. Para mayor seguridad tuya y la de mi creador, dirigete a: https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20te%20mando%20mi%20vaucher%20de%20pago."',
-            'Cierra con llamada a la accion breve, sin repetir datos innecesarios.',
+            'Cierra con llamada a la accion solo si corresponde al contexto.',
             'Evita prometer resultados imposibles o notas garantizadas.',
             `Contexto actual del cliente: tema=${context.topic || 'no definido'}, plazo=${context.deadline || 'no definido'}, urgencia=${context.urgency ? 'alta' : 'normal'}.`
         ].join(' ');
