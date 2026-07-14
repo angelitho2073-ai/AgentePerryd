@@ -311,7 +311,7 @@
                 </p>
                 <a class="urgent-whatsapp" href="https://wa.me/51932598200?text=COTIZAME%20ESTO%20ESTOY%20MAL%20EN%20NOTAS%20O%20PERDI%20UN%20TRABAJO" target="_blank" rel="noopener" data-track-whatsapp="urgent-recovery" data-track-label="bajas-notas-cta">
                     <span class="urgent-whatsapp-logo" aria-hidden="true">🟢</span>
-                    APRETA Y DIRIGETE DIRECTO AL WHATSAPP 932598200
+                    APRETA Y DIRIGETE DIRECTO A WHATSAPP
                 </a>
             </section>
 
@@ -381,8 +381,8 @@
 
             <section class="contact-strip" id="contacto">
                 <div class="contact-title">📲 ¡COMUNÍCATE RÁPIDAMENTE CON NOSOTROS!</div>
-                <p>Para cotizar tu trabajo de inmediato, comunícate a nuestro WhatsApp presionando el siguiente número:</p>
-                <a class="contact-phone" href="https://wa.me/51932598200" target="_blank" rel="noopener" data-track-whatsapp="contact-strip" data-track-label="numero-whatsapp">👉 https://wa.me/51932598200 👈</a>
+                <p>Para cotizar tu trabajo de inmediato, presiona el botón y te enviará directo a WhatsApp.</p>
+                <a class="contact-phone" href="https://wa.me/51932598200" target="_blank" rel="noopener" data-track-whatsapp="contact-strip" data-track-label="numero-whatsapp">👉 Ir a WhatsApp 👈</a>
             </section>
         </main>
 
@@ -402,7 +402,7 @@
             </div>
             <div>
                 <h4>Contacto directo</h4>
-                <a href="https://wa.me/51932598200" target="_blank" rel="noopener" data-track-whatsapp="footer-whatsapp" data-track-label="footer-contacto">WhatsApp: +51 932 598 200</a>
+                <a href="https://wa.me/51932598200" target="_blank" rel="noopener" data-track-whatsapp="footer-whatsapp" data-track-label="footer-contacto">Ir a WhatsApp</a>
             </div>
         </footer>
     </div>
@@ -435,7 +435,7 @@
 
             <div class="assistant-messages" id="assistant-messages">
                 <div class="message bot intro-message">
-                    ¡Hola! Soy el asistente virtual de Academia Agente Perry: Operación Excelencia. Puedo responder consultas de cualquier tema y también ayudarte en asesorías académicas, exámenes y admisión. Si deseas apoyo directo, también te atendemos por WhatsApp al 932598200.
+                    ¡Hola! Soy el asistente virtual de Academia Agente Perry: Operación Excelencia. Puedo responder consultas de cualquier tema y también ayudarte en asesorías académicas, exámenes y admisión. Si deseas apoyo directo, te puedo derivar a WhatsApp con un clic.
                 </div>
             </div>
 
@@ -966,7 +966,7 @@
             permissionChecked: false,
             pendingFinalText: ''
         };
-        const assistantPresentationMessage = '¡Hola! Soy el asistente virtual de Academia Agente Perry: Operación Excelencia. Puedo responder preguntas de cualquier tema y también apoyarte en asesorías académicas, exámenes y admisión. Si quieres atención directa, te atendemos por WhatsApp al 932598200.';
+        const assistantPresentationMessage = '¡Hola! Soy el asistente virtual de Academia Agente Perry: Operación Excelencia. Puedo responder preguntas de cualquier tema y también apoyarte en asesorías académicas, exámenes y admisión. Si quieres atención directa, te derivo a WhatsApp con un clic.';
         const assistantPositionKey = 'assistant_widget_position';
         let isDraggingAssistant = false;
         let suppressToggleClick = false;
@@ -989,12 +989,12 @@
 
             const text = document.createElement('p');
             text.className = 'payment-copy';
-            text.textContent = 'Metodo de pago: escanea este QR. Pago a nombre de Kevin Nima; luego mandas el vaucher. Para mayor seguridad tuya y la de mi creador, dirigete directo al WhatsApp.';
+            text.textContent = 'Metodo de pago: escanea este QR y luego envía el comprobante por WhatsApp usando el botón de abajo.';
 
             const qr = document.createElement('img');
             qr.className = 'payment-qr';
             qr.src = 'qr-pago.jpeg';
-            qr.alt = 'QR de pago a nombre de Kevin Nima';
+            qr.alt = 'QR de pago';
             qr.loading = 'lazy';
 
             const link = document.createElement('a');
@@ -1252,7 +1252,7 @@
             const hasTimeInfo = /\b\d+\s*(min|minuto|minutos|h|hora|horas)\b/.test(text);
 
             if (isPaymentQuery(text)) {
-                return 'Metodo de pago: escanea el QR. Pago a nombre de Kevin Nima y luego mandas el vaucher. Para mayor seguridad tuya y la de mi creador, dirigete directo al WhatsApp: https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20te%20mando%20mi%20vaucher%20de%20pago.';
+                return 'Metodo de pago: escanea el QR del chat y luego envía tu comprobante desde el botón de WhatsApp.';
             }
 
             if (isSensitiveDataQuery(text)) {
@@ -1392,7 +1392,7 @@
                     addAssistantPaymentMessage();
                     assistantState.history.push({
                         role: 'assistant',
-                        content: 'Metodo de pago con QR. Pago a nombre de Kevin Nima. Enviar vaucher por WhatsApp: https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20te%20mando%20mi%20vaucher%20de%20pago.'
+                        content: 'Metodo de pago con QR. Enviar comprobante por WhatsApp desde el boton del chat.'
                     });
 
                     if (assistantState.history.length > 12) {
@@ -1408,7 +1408,7 @@
                     addAssistantPaymentMessage();
                     assistantState.history.push({
                         role: 'assistant',
-                        content: 'Metodo de pago con QR. Pago a nombre de Kevin Nima. Enviar vaucher por WhatsApp: https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20te%20mando%20mi%20vaucher%20de%20pago.'
+                        content: 'Metodo de pago con QR. Enviar comprobante por WhatsApp desde el boton del chat.'
                     });
                 } else {
                     addAssistantMessage(reply, 'bot');
@@ -1662,7 +1662,6 @@
             "description": "Apoyo academico para universitarios en tareas, avances, examenes y portafolios.",
             "url": "https://example.com",
             "image": "descarga.jpeg",
-            "telephone": "+51-932-598-200",
             "areaServed": "PE",
             "sameAs": [
                 "https://wa.me/51932598200"

@@ -41,7 +41,7 @@ export default async function handler(req, res) {
             }
 
             if (/pago|abono|yape|plin|cerrar|trato|seña|sena/i.test(message)) {
-                base.push('Metodo de pago: escanea el QR mostrado en el chat web. Pago a nombre de Kevin Nima; luego manda el vaucher. Para mayor seguridad tuya y la de mi creador, dirigete a: https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20te%20mando%20mi%20vaucher%20de%20pago.');
+                base.push('Metodo de pago: escanea el QR mostrado en el chat web y luego envia tu comprobante desde el boton de WhatsApp.');
             }
 
             if (/whatsapp|contacto|numero|número/i.test(message)) {
@@ -79,7 +79,7 @@ export default async function handler(req, res) {
             'Si el cliente dice que ya esta en examen: pregunta cuanto tiempo le queda.',
             'Si preguntan precio, explica que depende de complejidad, rubrica y urgencia; no inventes montos fijos.',
             'Comparte WhatsApp solo cuando aporte valor (cotizar, cerrar o derivar soporte).',
-            'Cuando el cliente pregunte por metodo de pago, responde exactamente esto en 1 o 2 lineas: "Metodo de pago: escanea el QR mostrado en el chat web. Pago a nombre de Kevin Nima; luego manda el vaucher. Para mayor seguridad tuya y la de mi creador, dirigete a: https://wa.me/51932598200?text=Hola%20Agente%20Perry%2C%20te%20mando%20mi%20vaucher%20de%20pago."',
+            'Cuando el cliente pregunte por metodo de pago, responde en 1 o 2 lineas: "Metodo de pago: escanea el QR mostrado en el chat web y luego envia tu comprobante desde el boton de WhatsApp."',
             'Cierra con llamada a la accion solo si corresponde al contexto.',
             'Evita prometer resultados imposibles o notas garantizadas.',
             `Contexto actual del cliente: tema=${context.topic || 'no definido'}, plazo=${context.deadline || 'no definido'}, urgencia=${context.urgency ? 'alta' : 'normal'}.`
